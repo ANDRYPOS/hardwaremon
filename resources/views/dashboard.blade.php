@@ -1,8 +1,8 @@
 @extends('layout.admin')
 
 @section('content')
-    @include('sweetalert::alert')
     <main id="main" class="main">
+        @include('sweetalert::alert')
         <div class="pagetitle">
             <h1>Dashboard</h1>
             <nav>

@@ -24,7 +24,7 @@ use App\Http\Controllers\DashboardController;
 
 // hak aksers users login
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::post('/logout', [LoginController::class, 'logout']);
 

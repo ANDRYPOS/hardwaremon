@@ -33,7 +33,7 @@ class DashboardController extends Controller
             'status_id' => 2,
             'verified_by' => Auth::user()->id
         ]);
-        return redirect('/dashboard')->with('toast_success', 'Banner accepted succesfully');
+        return redirect('/dashboard')->with('toast_success', 'Product accepted succesfully');
     }
 
     public function productsDecline(Request $request)
@@ -45,6 +45,6 @@ class DashboardController extends Controller
             'status_id' => 3,
             'verified_by' => Auth::user()->id
         ]);
-        return redirect('/dashboard')->with('toast_success', 'Banner accepted succesfully');
+        return redirect('/dashboard')->with('toast_success', 'Product accepted succesfully');
     }
 }
