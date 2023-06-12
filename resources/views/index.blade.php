@@ -191,26 +191,30 @@
                 </div>
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                     <div class="swiper-wrapper">
+
                         @foreach ($products as $img)
-                            <div class="swiper-slide">
-                                <div class="testimonial-wrap">
-                                    <div class="testimonial-item">
+                            @if ($img->status_id == 2)
+                                <div class="swiper-slide">
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial-item">
 
-                                        <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
-                                            <h3>{{ $img->name }}</h3>
-                                            <small>Rp. {{ number_format($img->price) }}</small>
+                                            <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
+                                                <h3>{{ $img->name }}</h3>
+                                                <small>Rp. {{ number_format($img->price) }}</small>
 
-                                            <img src="{{ asset('storage/products_img/') }}/{{ $img->image }}"
-                                                class="card-img-top rounded" alt="hero" style="height: 250px">
-                                            <h4><span>{{ $img->description }}</span></h4>
-                                            <div class="btn-wrap">
-                                                <a href="{{ url('login') }}" class="btn-buy">Buy Now</a>
+                                                <img src="{{ asset('storage/products_img/') }}/{{ $img->image }}"
+                                                    class="card-img-top rounded" alt="hero"
+                                                    style="height: 250px">
+                                                <h4><span>{{ $img->description }}</span></h4>
+                                                <div class="btn-wrap">
+                                                    <a href="{{ url('login') }}" class="btn-buy">Buy Now</a>
+                                                </div>
                                             </div>
-                                        </div>
 
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- End pricing item -->
+                                </div><!-- End pricing item -->
+                            @endif
                         @endforeach
                     </div>
                     <div class="swiper-pagination"></div>

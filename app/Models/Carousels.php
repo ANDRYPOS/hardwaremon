@@ -32,6 +32,6 @@ class Carousels extends Model
     // status
     public function status()
     {
-        return $this->belongsTo(status::class, 'is_active', 'id');
+        return $this->belongsTo(Status::class, 'is_active', 'id');
     }
 }
