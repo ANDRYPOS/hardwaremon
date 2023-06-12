@@ -70,10 +70,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy'])->middleware(['admin']); //proses delete banner
 
     // verified
-    Route::put('/carousels-acepted', [CarouselsController::class, 'acepted'])->middleware(['admin']); //proses simpan banner
-    Route::put('/carousels-decline', [CarouselsController::class, 'decline'])->middleware(['admin']); //proses simpan banner
-    Route::put('/products-acepted', [DashboardController::class, 'productsAcepted'])->middleware(['admin']); //proses simpan banner
-    Route::put('/products-decline', [DashboardController::class, 'productsDecline'])->middleware(['admin']); //proses simpan banner
+    Route::put('/carousels-acepted', [CarouselsController::class, 'acepted'])->name('carousels-acepted')->middleware(['admin']); //proses simpan banner
+    Route::put('/carousels-decline', [CarouselsController::class, 'decline'])->name('carousels-decline')->middleware(['admin']); //proses simpan banner
+    Route::put('/products-acepted', [DashboardController::class, 'productsAcepted'])->name('products-acepted')->middleware(['admin']); //proses simpan banner
+    Route::put('/products-decline', [DashboardController::class, 'productsDecline'])->name('products-decline')->middleware(['admin']); //proses simpan banner
 
 });
 
