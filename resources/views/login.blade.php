@@ -45,7 +45,7 @@
                 <div class="d-grid">
                     <button class="btn btn-primary" type="submit">Login</button>
                 </div>
-                <p class="small"><a class="text-primary" href="/register">Don't have an account?</a></p>
+                <p class="small"><a class="text-primary" href="{{ url('register') }}">Don't have an account?</a></p>
             </form>
         </div>
     </div>
