@@ -196,6 +196,7 @@ class UsersController extends Controller
 
     public function profilUpdate(Request $request)
     {
+        /* dd($request->all()); */
         $message = [
             'unique' => 'Sudah digunakan',
             'email' => 'Harus disertai @',
@@ -211,12 +212,14 @@ class UsersController extends Controller
                 'name' => 'required|string|min:2',
                 'phone' => 'required|numeric',
                 'address' => 'required|min:2',
+                'email' => 'required',
+                'password' => 'required',
             ],
             $message
         );
 
         $users = User::where('id', $request->id)->first();
-        /* dd($users); */
+        // dd($users);
         if ($request->hasFile('avatar')) {
 
             // hapus file
@@ -235,6 +238,7 @@ class UsersController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'address' => $request->address,
+            'password' => $request->password,
         ]);
 
         return back()->with('toast_success', 'Profil Berhasil Diupdate');

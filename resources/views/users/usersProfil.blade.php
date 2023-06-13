@@ -1,6 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
+    @include('sweetalert::alert')
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
@@ -37,12 +38,6 @@
                                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
                                     Profile</button>
                             </li>
-
-                            <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab"
-                                    data-bs-target="#profile-change-password">Change Password</button>
-                            </li>
-
                         </ul>
                         <div class="tab-content pt-2">
 
@@ -78,9 +73,10 @@
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
-                                <form action="{{ url('users-profil') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ url('profil-update') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
+                                    <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                     <div class="row mb-3">
                                         <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
                                             Image</label>
@@ -99,7 +95,7 @@
                                     <div class="row mb-3">
                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="fullName" type="text" class="form-control" id="fullName"
+                                            <input name="name" type="text" class="form-control" id="fullName"
                                                 value="{{ Auth::user()->name }}">
                                         </div>
                                     </div>
@@ -107,7 +103,7 @@
                                     <div class="row mb-3">
                                         <label for="Job" class="col-md-4 col-lg-3 col-form-label">Role</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="job" type="text" class="form-control" id="Job"
+                                            <input name="role" type="text" class="form-control" id="Job"
                                                 value="{{ Auth::user()->role }}" disabled style="cursor: not-allowed">
                                         </div>
                                     </div>
@@ -136,49 +132,18 @@
                                         </div>
                                     </div>
 
+                                    <div class="row mb-3">
+                                        <label for="Password" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="password" type="password" class="form-control" id="password"
+                                                value="{{ Auth::user()->password }}">
+                                        </div>
+                                    </div>
+
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Save Changes</button>
                                     </div>
                                 </form><!-- End Profile Edit Form -->
-
-                            </div>
-
-                            <div class="tab-pane fade pt-3" id="profile-change-password">
-                                <!-- Change Password Form -->
-                                <form method="post" action="">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="row mb-3">
-                                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
-                                            Password</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input name="password" type="password" class="form-control"
-                                                id="currentPassword">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
-                                            Password</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input name="newpassword" type="password" class="form-control"
-                                                id="newPassword">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New
-                                            Password</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input name="renewpassword" type="password" class="form-control"
-                                                id="renewPassword">
-                                        </div>
-                                    </div>
-
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Change Password</button>
-                                    </div>
-                                </form><!-- End Change Password Form -->
                             </div>
 
                         </div><!-- End Bordered Tabs -->
