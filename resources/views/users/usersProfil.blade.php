@@ -84,19 +84,21 @@
                                             <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}"
                                                 alt="Profile" class="rounded">
                                             <div class="pt-2">
-                                                <a href="#" class="btn btn-primary btn-sm"
-                                                    title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"
-                                                    title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                                <label for="file-upload" class="custom-file-upload">
+                                                    <a class="btn btn-primary btn-sm" title="Upload new profile image"><i
+                                                            class="bi bi-upload"></i></a>
+                                                </label>
+                                                <input id="file-upload" type="file" class="d-none" name="avatar" />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name
+                                        </label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="name" type="text" class="form-control" id="fullName"
-                                                value="{{ Auth::user()->name }}">
+                                                value="{{ Auth::user()->name }}" required>
                                         </div>
                                     </div>
 
@@ -112,7 +114,7 @@
                                         <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="address" type="text" class="form-control" id="Address"
-                                                value="{{ Auth::user()->address }}">
+                                                value="{{ Auth::user()->address }}" required>
                                         </div>
                                     </div>
 
@@ -120,7 +122,7 @@
                                         <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="phone" type="text" class="form-control" id="Phone"
-                                                value="{{ Auth::user()->phone }}">
+                                                value="{{ Auth::user()->phone }}" required>
                                         </div>
                                     </div>
 
@@ -128,7 +130,7 @@
                                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="email" type="email" class="form-control" id="Email"
-                                                value="{{ Auth::user()->email }}">
+                                                value="{{ Auth::user()->email }}" required>
                                         </div>
                                     </div>
 
@@ -136,7 +138,7 @@
                                         <label for="Password" class="col-md-4 col-lg-3 col-form-label">Password</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="password" type="password" class="form-control" id="password"
-                                                value="{{ Auth::user()->password }}">
+                                                value="{{ Auth::user()->password }}" required>
                                         </div>
                                     </div>
 
