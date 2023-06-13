@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    //
+    //tampil dashboard
     public function index()
     {
         //
@@ -24,6 +24,7 @@ class DashboardController extends Controller
         return view('dashboard', compact(['products', 'productCount', 'carousels', 'carouselsCount', 'carouselsActive', 'productsActive']));
     }
 
+    // accepted product in dashboard
     public function productsAcepted(Request $request)
     {
         $products = Products::where('id', $request->id)->first();
@@ -36,6 +37,7 @@ class DashboardController extends Controller
         return redirect('/dashboard')->with('toast_success', 'Product accepted succesfully');
     }
 
+    // decline product in dashboard
     public function productsDecline(Request $request)
     {
         $products = Products::where('id', $request->id)->first();

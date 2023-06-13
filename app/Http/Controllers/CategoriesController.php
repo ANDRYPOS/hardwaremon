@@ -9,18 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoriesController extends Controller
 {
-    //
-    public function decline(Request $request)
-    {
-        $carousels = Carousels::where('id', $request->id)->first();
-        // dd($carousels);
-        $carousels->update([
-            'is_active' => 3,
-            'verified_by' => Auth::user()->id
-        ]);
-        return redirect('/carousels')->with('toast_success', 'Banner rejected succesfully');
-    }
-
+    //tampil form categories
     public function setting()
     {
         //
@@ -29,12 +18,14 @@ class CategoriesController extends Controller
         return view('categories.categoriesSetting', compact('categories'));
     }
 
+    // tampil form create
     public function create()
     {
         $categories = Categories::all();
         return view('categories.categoriesCreate', compact('categories'));
     }
 
+    // proses simpan
     public function store(Request $request)
     {
         //
@@ -69,12 +60,14 @@ class CategoriesController extends Controller
         }
     }
 
+    // tampil form edit
     public function edit($id)
     {
         $categories = Categories::where('id', $id)->get();
         return view('categories.categoriesEdit', compact('categories'));
     }
 
+    // proses update
     public function update(Request $request)
     {
         //
@@ -108,10 +101,9 @@ class CategoriesController extends Controller
         return redirect('/categories-setting')->with('toast_success', 'Tidak Ada Data Update');
     }
 
+    // proses delete
     public function destroy($id)
     {
-        //
-
         // dd($id);
         $categories = Categories::find($id)->delete();
         if ($categories) {

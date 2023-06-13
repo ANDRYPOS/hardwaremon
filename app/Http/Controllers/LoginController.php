@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    //
+    //tampil halaman login
     public function index()
     {
         //

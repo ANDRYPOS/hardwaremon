@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
-    //
+    //tampil form group user
     public function usersGroup()
     {
         $users = User::all();
@@ -176,7 +176,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
         // dd($id);
         $users = User::find($id);
 
@@ -194,7 +193,7 @@ class UsersController extends Controller
         return view('users.usersProfil', compact('users'));
     }
 
-
+    // update profil (khusus sudah login)
     public function profilUpdate(Request $request)
     {
         /* dd($request->all()); */
@@ -243,9 +242,5 @@ class UsersController extends Controller
         ]);
 
         return back()->with('toast_success', 'Profil Berhasil Diupdate');
-    }
-
-    public function imgprofilDelete($id)
-    {
     }
 }

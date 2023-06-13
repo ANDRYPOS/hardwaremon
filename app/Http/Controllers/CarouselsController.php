@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselsController extends Controller
 {
-    //
+    //tampil data carousels dilanding
     public function index()
     {
         //
@@ -18,6 +18,7 @@ class CarouselsController extends Controller
         return view('index', compact('carousels'));
     }
 
+    // tampil data carousels di form
     public function setting()
     {
         $carousels = Carousels::all();
@@ -25,6 +26,7 @@ class CarouselsController extends Controller
         return view('carousels.carouselsSetting', compact(['carousels', 'carouselsCount']));
     }
 
+    // simpan input data carousels
     public function store(Request $request)
     {
         // dd($request->all());
@@ -54,58 +56,7 @@ class CarouselsController extends Controller
         return redirect('/carousels')->with('toast_success', 'Data Berhasil Disimpan');
     }
 
-    public function edit($id)
-    {
-        // dd($id);
-        $carousels = Carousels::where('id', $id)->get();
-        return view('carousels.carouselsEdit', compact('carousels'));
-    }
-
-    public function update(Request $request)
-    {
-        // dd($request->all());
-
-        $message = [
-            'required' => 'Tidak boleh kosong',
-            'alpha' => 'Harus berisi text',
-            'min' => 'Minimal 2 digit',
-            'numeric' => 'Harus berisi angka',
-            'mimes' => 'Format file tidak ditemukan : jpeg,png,jpg',
-            'max' => 'Maximal 2 MB'
-        ];
-
-        $request->validate(
-            [
-                'name' => 'required|min:2',
-                'banner' => 'max:2024|mimes:jpeg,png,jpg'
-            ],
-            $message
-        );
-
-        $carousels = Carousels::where('id', $request->id)->first();
-        // dd($carousels);
-        if ($request->hasFile('banner')) {
-
-            // hapus file
-            $delete = Storage::delete('public/banner/' . $carousels->banner);
-
-            // masukkan file baru
-            $name = $request->file('banner');
-            $imageName = 'banner_' . time() . '.' . $name->getClientOriginalExtension();
-            $path = Storage::putFileAs('public/banner', $request->file('banner'), $imageName);
-            $carousels->update([
-                'name' => $request->name,
-                'banner' => $imageName,
-            ]);
-        }
-        $carousels->update([
-            'name' => $request->name,
-            'created_by' =>  Auth::user()->id,
-            'verified_by' =>  Auth::user()->id,
-        ]);
-        return redirect('/carousels')->with('toast_success', 'Data Berhasil Diupdate');
-    }
-
+    // delete
     public function destroy($id)
     {
         //
@@ -122,6 +73,7 @@ class CarouselsController extends Controller
         return redirect('/carousels')->with('toast_success', 'Delete succesfully');
     }
 
+    // proses accepted
     public function acepted(Request $request)
     {
         $carousels = Carousels::where('id', $request->id)->first();
@@ -135,6 +87,7 @@ class CarouselsController extends Controller
         return redirect('/carousels')->with('toast_success', 'Banner accepted succesfully');
     }
 
+    // proses decline
     public function decline(Request $request)
     {
         $carousels = Carousels::where('id', $request->id)->first();

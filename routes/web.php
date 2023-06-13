@@ -65,8 +65,6 @@ Route::middleware(['auth'])->group(function () {
     // banner
     Route::get('/carousels', [CarouselsController::class, 'setting'])->middleware(['admin']); //view form and result carousels
     Route::post('/carousels-create', [CarouselsController::class, 'store'])->middleware(['admin']); //proses simpan banner
-    Route::get('/carousels-edit/{id}', [CarouselsController::class, 'edit'])->middleware(['admin']); //view form edit carousels
-    Route::put('/carousels-update', [CarouselsController::class, 'update'])->middleware(['admin']); //proses simpan update banner
     Route::get('/carousels-delete/{id}', [CarouselsController::class, 'destroy'])->middleware(['admin']); //proses delete banner
 
     // verified

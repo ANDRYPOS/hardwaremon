@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-    //
+    //tampil categories dan product pada form product
     public function index()
     {
         $categories = Categories::all();
@@ -23,7 +23,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * tampil halaman setting
+     * tampil form setting
      */
     public function setting()
     {
@@ -49,8 +49,7 @@ class ProductsController extends Controller
         //panggil tb categories untuk insert data products dropdown category_id
         $categories = Categories::all();
         $products = Products::all();
-        /* $status = products::where('role')->get();
-        dd($status);  */      /* dd($products); */
+
         return view('products.productsCreate', compact(['products', 'categories', 'users']));
     }
 
@@ -136,13 +135,10 @@ class ProductsController extends Controller
         );
 
         $products = Products::where('id', $request->id)->first();
-        // dd($request->all());
-        // dd($products);
-        // cek apakah update file
+
         if ($request->hasFile('image')) {
             // jika update hapus file lama
             $delete = Storage::delete('public/products_img/' . $products->image);
-            // dd($delete);
 
             // update file dengan yg baru
             $name = $request->file('image');

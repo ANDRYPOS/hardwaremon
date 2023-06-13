@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
-    //
+    //landing page
     public function index()
     {
         //

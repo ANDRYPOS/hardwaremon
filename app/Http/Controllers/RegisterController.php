@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    // halaman regis
     public function index()
     {
         //
         return view('register');
     }
 
-    //
+    //proses simpan regist
     public function store(Request $request)
     {
 
