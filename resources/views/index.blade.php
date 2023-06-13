@@ -186,10 +186,14 @@
         <!-- ======= pricing Section ======= -->
         <section id="pricing" class="testimonials section-bg">
             <div class="container">
-
                 <div class="section-title" data-aos="fade-up">
                     <h2>Pricing</h2>
                 </div>
+
+                {{-- range --}}
+
+                {{-- range end --}}
+
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                     <div class="swiper-wrapper">
 
@@ -197,9 +201,10 @@
                             @if ($img->status_id == 2)
                                 <div class="swiper-slide">
                                     <div class="testimonial-wrap">
-                                        <div class="testimonial-item">
+                                        <div class="testimonial-item" style="height:28rem">
 
-                                            <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
+                                            <div class="box" data-aos="zoom-in-right" data-aos-delay="200"
+                                                style="height: 27rem">
                                                 <h3>{{ $img->name }}</h3>
                                                 <small>Rp. {{ number_format($img->price) }}</small>
 
@@ -207,10 +212,10 @@
                                                     class="card-img-top rounded" alt="hero"
                                                     style="height: 250px">
                                                 <h4><span>{{ $img->description }}</span></h4>
-                                                <div class="btn-wrap">
-                                                    <a href="{{ url('login') }}" class="btn-buy">Buy Now</a>
-                                                </div>
                                             </div>
+                                            {{-- <div class="btn-wrap" style="border: solid 1px">
+                                            </div> --}}
+                                            <a href="{{ url('login') }}" class="btn-buy">Buy Now</a>
 
                                         </div>
                                     </div>

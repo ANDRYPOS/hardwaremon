@@ -20,4 +20,9 @@ class LandingController extends Controller
         // pashing data ke view bawa data product(join user dan categories), dan data categories
         return view('index', compact(['products', 'carousels']));
     }
+
+    // range harga products
+    public function range()
+    {
+    }
 }

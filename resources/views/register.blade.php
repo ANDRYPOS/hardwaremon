@@ -49,7 +49,7 @@
                     </label>
                     <input type="password" name="password"
                         class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['password']) ? 'is-invalid' : '' }}"
-                        id="exampleInputPassword1" value="{{ old('password') }}">
+                        id="exampleInputPassword1">
                 </div>
 
                 <div class="mb-2">

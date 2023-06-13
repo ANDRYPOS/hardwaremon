@@ -23,7 +23,7 @@
     <div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
             <h2 class="text-center mb-4 text-primary">Login Form</h2>
-            <form method="post" action="/login-proses">
+            <form method="post" action="{{ url('login-proses') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address: @error('email')
@@ -31,8 +31,8 @@
                         @enderror
                     </label>
                     <input type="email" name="email"
-                        class="form-control bg-info bg-opacity-10 border border-primary" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['email']) ? 'is-invalid' : '' }}"
+                        id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('email') }}">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password: @error('password')
@@ -40,12 +40,16 @@
                         @enderror
                     </label>
                     <input type="password" name="password"
-                        class="form-control bg-info bg-opacity-10 border border-primary" id="exampleInputPassword1">
+                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['password']) ? 'is-invalid' : '' }}"
+                        id="exampleInputPassword1">
                 </div>
                 <div class="d-grid">
                     <button class="btn btn-primary" type="submit">Login</button>
                 </div>
-                <p class="small"><a class="text-primary" href="{{ url('register') }}">Don't have an account?</a></p>
+                <p class="small" style="display: flex; justify-content: space-between">
+                    <a class="text-primary" href="{{ url('register') }}">Don't have an account?</a>
+                    <a class="text-primary" href="{{ url('/') }}">Back</a>
+                </p>
             </form>
         </div>
     </div>

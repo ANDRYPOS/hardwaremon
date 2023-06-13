@@ -35,7 +35,7 @@
                                         <th scope="col">Image</th>
                                         <th scope="col">Products</th>
                                         <th scope="col">Categories</th>
-                                        <th scope="col">Description</th>
+                                        <th scope="col" class="w-25">Description</th>
                                         <th scope="col">Prices</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
