@@ -37,14 +37,15 @@
                 <h1><a href="/">HardwareMon</a></h1>
             </div>
 
-            <nav id="navbar" class="navbar">
+            <nav id="navbar" class="navbar d-flex justify-content-center">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a class="getstarted scrollto" href="{{ url('login') }}">Sign in</a></li>
+                    <li><a class="nav-link scrollto active d-flex justify-content-center" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#pricing">Pricing</a></li>
+                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#team">Team</a></li>
+                    <li><a class="getstarted scrollto d-flex justify-content-center" href="{{ url('login') }}">Sign
+                            in</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -147,7 +148,7 @@
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
                             <h4 class="title"><a href="">Hardware</a></h4>
-                            <p class="description">Penjualan dan instalasi.
+                            <p class="description">Penjualan dan instalasi hardware ditangani oleh tenaga profesional.
                             </p>
                         </div>
                     </div>
@@ -233,8 +234,8 @@
                 </div>
 
                 <div class="row d-md-flex justify-content-center">
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-3 col-md-12 d-flex align-items-stretch">
+                        <div class="member m-auto" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
                                 <img src="{{ asset('assets/img/me.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
@@ -253,7 +254,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member m-auto" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
                                 <img src="{{ asset('assets/img/Kumparan.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
