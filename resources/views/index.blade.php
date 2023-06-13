@@ -94,7 +94,7 @@
             </div>
         </div>
 
-    </section><!-- End Hero -->
+    </section><!-- ======= End Hero ======= -->
 
     <main id="main">
         <!-- ======= About Us Section ======= -->
@@ -134,7 +134,7 @@
                 </div>
 
             </div>
-        </section><!-- End About Us Section -->
+        </section><!-- ======= End About Us Section ======= -->
 
         <!-- ======= Services Section ======= -->
         <section id="services" class="services">
@@ -180,9 +180,10 @@
                 </div>
 
             </div>
-        </section><!-- End Services Section -->
+        </section>
+        <!-- ======= End Services Section ======= -->
 
-
+        <!-- ======= products Section ======= -->
         <section id="products" class="portfolio">
             <div class="container">
 
@@ -229,7 +230,7 @@
 
             </div>
         </section>
-        <!-- ======= pricing Section ======= -->
+        <!-- ======= products Section ======= -->
 
         <!-- ======= Team Section ======= -->
         <section id="team" class="team section-bg">
