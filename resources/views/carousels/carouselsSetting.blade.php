@@ -22,15 +22,16 @@
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </label>
-                <input class="form-control mb-1" type="text" name="name">
+                <input class="form-control mb-1 {{ isset($errors->messages()['name']) ? 'is-invalid' : '' }}" type="text"
+                    name="name" value="{{ old('name') }}">
             </div>
             <div class="col-md-4">
                 <label for="banner"> Banner: @error('banner')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </label>
-                <input class="form-control" type="file" id="formFile" name="banner"
-                    accept="image/gif, image/jpeg, image/png">
+                <input class="form-control {{ isset($errors->messages()['banner']) ? 'is-invalid' : '' }}" type="file"
+                    id="formFile" name="banner" accept="image/gif, image/jpeg, image/png">
             </div>
             <div class="col-2">
                 <input type="submit" value="submit" class="btn btn-primary mt-4">
@@ -59,7 +60,6 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $banner->name }}</h5>
                                             <p class="card-text">
-                                                {{-- {{ $banner->is_active == 1 ? 'Waiting' : 'Active' }} --}}
                                                 {{ $banner->status->name }}
                                             </p>
                                             @if (Auth::user()->role == 'admin')

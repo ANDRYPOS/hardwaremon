@@ -42,7 +42,7 @@
                     <li><a class="nav-link scrollto active d-flex justify-content-center" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto d-flex justify-content-center" href="#about">About</a></li>
                     <li><a class="nav-link scrollto d-flex justify-content-center" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#pricing">Pricing</a></li>
+                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#products">Products</a></li>
                     <li><a class="nav-link scrollto d-flex justify-content-center" href="#team">Team</a></li>
                     <li><a class="getstarted scrollto d-flex justify-content-center" href="{{ url('login') }}">Sign
                             in</a></li>
@@ -183,47 +183,48 @@
         </section><!-- End Services Section -->
 
 
-        <!-- ======= pricing Section ======= -->
-        <section id="pricing" class="testimonials section-bg">
+        <section id="products" class="portfolio">
             <div class="container">
+
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Pricing</h2>
+                    <h2>Products</h2>
                 </div>
 
-                {{-- range --}}
+                <div class="row" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            @foreach ($categori as $category)
+                                <li data-filter=".filter-{{ $category->categories->name }}">
+                                    {{ $category->categories->name }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
 
-                {{-- range end --}}
-
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-
-                        @foreach ($products as $img)
-                            @if ($img->status_id == 2)
-                                <div class="swiper-slide">
-                                    <div class="testimonial-wrap">
-                                        <div class="testimonial-item" style="height:28rem">
-
-                                            <div class="box" data-aos="zoom-in-right" data-aos-delay="200"
-                                                style="height: 27rem">
-                                                <h3>{{ $img->name }}</h3>
-                                                <small>Rp. {{ number_format($img->price) }}</small>
-
-                                                <img src="{{ asset('storage/products_img/') }}/{{ $img->image }}"
-                                                    class="card-img-top rounded" alt="hero"
-                                                    style="height: 250px">
-                                                <h4><span>{{ $img->description }}</span></h4>
-                                            </div>
-                                            {{-- <div class="btn-wrap" style="border: solid 1px">
-                                            </div> --}}
-                                            <a href="{{ url('login') }}" class="btn-buy">Buy Now</a>
-
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+                    @foreach ($products as $product)
+                        @if ($product->status_id == 2)
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $product->categories->name }}">
+                                <div class="portfolio-wrap">
+                                    <img src="{{ asset('storage/products_img/') }}/{{ $product->image }}"
+                                        class="img-fluid" alt="">
+                                    <div class="portfolio-info">
+                                        <h4>{{ $product->name }}</h4>
+                                        <p>Rp. {{ number_format($product->price) }},-</p>
+                                        <div class="portfolio-links">
+                                            <a href="{{ asset('storage/products_img/') }}/{{ $product->image }}"
+                                                data-gallery="portfolioGallery" class="portfolio-lightbox"
+                                                title="{{ $product->description }}"><i class="bx bx-plus"></i></a>
+                                            <a href="{{ url('login') }}" title="Buy Now"><i
+                                                    class="bx bx-link"></i></a>
                                         </div>
                                     </div>
-                                </div><!-- End pricing item -->
-                            @endif
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+
                 </div>
 
             </div>

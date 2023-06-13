@@ -58,7 +58,7 @@
                         @enderror
                     </label>
                     <input type="text" name="phone"
-                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['ohone']) ? 'is-invalid' : '' }}"
+                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['phone']) ? 'is-invalid' : '' }}"
                         id="exampleInputphone" value="{{ old('phone') }}">
                 </div>
 
