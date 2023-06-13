@@ -14,7 +14,8 @@
 
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                        <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}" alt="Profile" class="rounded">
+                        <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}" alt="Profile" class="rounded"
+                            style="height:10rem; width:10rem">
                         <h2>{{ Auth::user()->name }}</h2>
                         <h3>{{ Auth::user()->role }}</h3>
                     </div>
@@ -82,13 +83,16 @@
                                             Image</label>
                                         <div class="col-md-8 col-lg-9">
                                             <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}"
-                                                alt="Profile" class="rounded">
+                                                alt="Profile" class="rounded" id="preview"
+                                                style="width: 10rem; height:10rem">
+
                                             <div class="pt-2">
-                                                <label for="file-upload" class="custom-file-upload">
+                                                <label for="imgInp" class="custom-file-upload">
                                                     <a class="btn btn-primary btn-sm" title="Upload new profile image"><i
                                                             class="bi bi-upload"></i></a>
                                                 </label>
-                                                <input id="file-upload" type="file" class="d-none" name="avatar" />
+                                                <input id="imgInp" type="file" class="d-none" name="avatar"
+                                                    oninput="preview.src=window.URL.createObjectURL(this.files[0])" />
                                             </div>
                                         </div>
                                     </div>
