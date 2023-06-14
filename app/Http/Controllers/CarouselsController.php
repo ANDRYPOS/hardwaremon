@@ -14,8 +14,8 @@ class CarouselsController extends Controller
     {
         //
         /* $carousels = carousels::all(); */
-        $carousels = Carousels::with(['usersCreated', 'usersVerified', 'status']);
-        return view('index', compact('carousels'));
+        /* $carousels = Carousels::with(['usersCreated', 'usersVerified', 'status']);
+        return view('index', compact('carousels')); */
     }
 
     // tampil data carousels di form
