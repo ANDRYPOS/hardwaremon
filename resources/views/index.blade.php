@@ -203,6 +203,18 @@
                     </div>
                 </div>
 
+
+                {{-- range --}}
+                <div id="slider">test</div>
+                <div class="form-group">
+                    <div class="slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr">
+                        <div class="noUi-base">
+                            <div class="noUi-connects">tester</div>
+                            <div class="noUi-origin" style="transform: translate(-500%, 0px); z-index: 4;"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
                     @foreach ($products as $product)
                         @if ($product->status_id == 2)
@@ -212,13 +224,14 @@
                                         class="img-fluid" alt="">
                                     <div class="portfolio-info">
                                         <h4>{{ $product->name }}</h4>
-                                        <p>Rp. {{ number_format($product->price) }},-</p>
+                                        <p>Rp. {{ number_format($product->price) }}.-</p>
                                         <div class="portfolio-links">
                                             <a href="{{ asset('storage/products_img/') }}/{{ $product->image }}"
                                                 data-gallery="portfolioGallery" class="portfolio-lightbox"
-                                                title="{{ $product->description }}"><i class="bx bx-plus"></i></a>
+                                                title="{{ $product->description }}"><i class="bi bi-zoom-in"
+                                                    style="font-size:20px"></i></a>
                                             <a href="{{ url('login') }}" title="Buy Now"><i
-                                                    class="bx bx-link"></i></a>
+                                                    class="bi bi-cart-check" style="font-size:20px"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -247,10 +260,10 @@
                                 <img src="{{ asset('assets/img/me.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://bit.ly/45WEXER"><i class="bi bi-github"></i></a>
+                                    <a href="https://bit.ly/3CqM76u"><i class="bi bi-whatsapp"></i></a>
+                                    <a href="https://bit.ly/3P5UFaG"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://bit.ly/43VO1YL"><i class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                             <div class="member-info">
@@ -266,10 +279,10 @@
                                 <img src="{{ asset('assets/img/Kumparan.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
                                 <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://bit.ly/3Jd0WxE"><i class="bi bi-github"></i></a>
+                                    <a href="https://bit.ly/3JfhCEt"><i class="bi bi-whatsapp"></i></a>
+                                    <a href="https://bit.ly/43vsm9X"><i class="bi bi-instagram"></i></a>
+                                    <a href="https://bit.ly/43Crkco"><i class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                             <div class="member-info">
