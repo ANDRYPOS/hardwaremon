@@ -238,7 +238,7 @@
                                 <div class="cari">
                                     <div class="portfolio-wrap rounded" style="height:250px">
                                         <img src="{{ asset('storage/products_img/') }}/{{ $product->image }}"
-                                            class="img-fluid" alt="" style="height:250px">
+                                            class="img-fluid" alt="" style="height:250px; width:100%">
                                         <div class="portfolio-info">
                                             <h4>{{ $product->name }}</h4>
 
