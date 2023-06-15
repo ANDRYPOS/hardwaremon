@@ -124,7 +124,7 @@
                             <tbody>
                                 @forelse ($categories as $dataCategories)
                                     <tr>
-                                        <th>{{ $dataCategories->id }}</th>
+                                        <th>{{ $loop->iteration }}.</th>
                                         <td>{{ $dataCategories->name }}</td>
                                         <td>{{ date('d-M-Y', strtotime($dataCategories->created_at)) }}</td>
                                         <td>{{ date('d-M-Y', strtotime($dataCategories->updated_at)) }}</td>
