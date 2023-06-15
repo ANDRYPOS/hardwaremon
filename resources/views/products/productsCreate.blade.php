@@ -102,7 +102,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ID</th>
                                     <th scope="col">Nama Kategori</th>
                                     <th scope="col">Created At</th>
                                     <th scope="col">Updated At</th>
@@ -112,7 +111,6 @@
                                 @forelse ($categories as $dataCategories)
                                     <tr>
                                         <th>{{ $loop->iteration }}.</th>
-                                        <td>{{ $dataCategories->id }}</td>
                                         <td>{{ $dataCategories->name }}</td>
                                         <td>{{ date('d-M-Y', strtotime($dataCategories->created_at)) }}</td>
                                         <td>{{ date('d-M-Y', strtotime($dataCategories->updated_at)) }}</td>
