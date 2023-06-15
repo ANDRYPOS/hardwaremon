@@ -201,46 +201,63 @@
                             @endforeach
                         </ul>
                     </div>
+
+                    {{-- range --}}
+                    {{-- <div class="col col-md-2 mb-2">
+                        <form action="/action_page.php">
+                            <label for="customRange" class="form-label">Filter price</label>
+                            <input type="range" class="form-range" id="customRange" name="points">
+                            <small>price min </small>-<small> price max</small>
+                        </form>
+                    </div> --}}
+
+                    {{-- <div class="col col-md-3 mb-2">
+                        <form action="{{ url('/') }}" method="post">
+                            @csrf
+                            <label for="amount">Price range:</label>
+                            <input type="text" id="price" name="tampil"
+                                style="border:0; color:#f6931f; font-weight:bold;">
+                            <input type="hidden" id="price-min" name="priceMin"
+                                style="border:0; color:#f6931f; font-weight:bold;">
+                            <input type="hidden" id="price-max" name="priceMax"
+                                style="border:0; color:#f6931f; font-weight:bold;">
+                            <div id="slider-range"></div>
+                            <div class="col col-md-1">
+                                <input type="submit" role="button">
+                            </div>
+                        </form>
+                    </div> --}}
+
+                    {{-- range --}}
+
                 </div>
-
-
-                {{-- range --}}
-                <div id="slider">test</div>
-                <div class="form-group">
-                    <div class="slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr">
-                        <div class="noUi-base">
-                            <div class="noUi-connects">tester</div>
-                            <div class="noUi-origin" style="transform: translate(-500%, 0px); z-index: 4;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300" id="tampil">
                     @foreach ($products as $product)
                         @if ($product->status_id == 2)
                             <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $product->categories->name }}">
-                                <div class="portfolio-wrap">
-                                    <img src="{{ asset('storage/products_img/') }}/{{ $product->image }}"
-                                        class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>{{ $product->name }}</h4>
-                                        <p>Rp. {{ number_format($product->price) }}.-</p>
-                                        <div class="portfolio-links">
-                                            <a href="{{ asset('storage/products_img/') }}/{{ $product->image }}"
-                                                data-gallery="portfolioGallery" class="portfolio-lightbox"
-                                                title="{{ $product->description }}"><i class="bi bi-zoom-in"
-                                                    style="font-size:20px"></i></a>
-                                            <a href="{{ url('login') }}" title="Buy Now"><i
-                                                    class="bi bi-cart-check" style="font-size:20px"></i></a>
+                                <div class="cari">
+                                    <div class="portfolio-wrap rounded" style="height:250px">
+                                        <img src="{{ asset('storage/products_img/') }}/{{ $product->image }}"
+                                            class="img-fluid" alt="" style="height:250px">
+                                        <div class="portfolio-info">
+                                            <h4>{{ $product->name }}</h4>
+
+                                            <p>Rp. {{ number_format($product->price) }}.-</p>
+                                            <div class="portfolio-links">
+                                                <a href="{{ asset('storage/products_img/') }}/{{ $product->image }}"
+                                                    data-gallery="portfolioGallery" class="portfolio-lightbox"
+                                                    title="{{ $product->description }}"><i class="bi bi-zoom-in"
+                                                        style="font-size:20px"></i></a>
+                                                <a href="{{ url('login') }}" title="Buy Now"><i
+                                                        class="bi bi-cart-check" style="font-size:20px"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endif
                     @endforeach
-
                 </div>
-
             </div>
         </section>
         <!-- ======= products Section ======= -->
@@ -327,6 +344,92 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 30000000,
+                values: [300000, 10000000],
+                slide: function(event, ui) {
+                    $("#price-min").val(ui.values[0]);
+                    $("#price-max").val(ui.values[1]);
+                    $("#price").val("Rp. " + ui.values[0] + " - Rp. " + ui.values[1]);
+                }
+            });
+            $("#price-min").val($("#slider-range").slider("values", 0));
+            $("#price-max").val($("#slider-range").slider("values", 1));
+
+            $("#price").val("Rp. " + $("#slider-range").slider("values", 0) +
+                " - Rp. " + $("#slider-range").slider("values", 1));
+
+        });
+    </script>
+
+    {{-- <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#tampil').load("tampil.php");
+
+            $("#Submit").click(function() {
+                var data = $('#form').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ url('/') }}",
+                    data: data,
+
+                    cache: false,
+                    success: function(data) {
+                        $('#tampil').load("tampil.php");
+                    }
+                });
+            });
+        });
+    </script> --}}
+
+    {{-- <script>
+        function send() {
+            var start = $('#amount_start').val();
+            var end = $('#amount_end').val();
+
+            $.ajax({
+                method: "get",
+                url: '/range',
+                data: "start=" +
+                    start + "& +end =" + end,
+                beforeSend: function() {
+                    $(#showPrice).show("fast");
+                },
+
+                complete: function() {
+                    $(#showPrice).hide("fast");
+                },
+
+                success: function(html) {
+                    $('#showDiv').show('slow');
+                    $('#showDiv').html(html);
+                },
+            });
+        }
+    </script> --}}
+    {{-- search --}}
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
+    {{-- <script>
+        $(document).ready(function() {
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#searchCard .cari").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script> --}}
 </body>
 
 </html>

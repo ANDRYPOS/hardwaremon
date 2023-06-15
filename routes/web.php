@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/filter-staff', [UsersController::class, 'staff'])->middleware(['admin']); //filter role staff
     Route::get('/filter-user', [UsersController::class, 'users'])->middleware(['admin']); //filter user
 
+    // user profil
     Route::get('/users-profil/{id}', [UsersController::class, 'profil']); //form setting profil
     Route::put('/profil-update', [UsersController::class, 'profilUpdate']); //form setting profil update
 
@@ -83,6 +84,9 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/', [LandingController::class, 'index']);
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register-store', [RegisterController::class, 'store']);
+
+
+    // Route::post('/', [LandingController::class, 'range']);
 });
 
 // kembali ke dashboard jika akses landing page dan login setelah didalam dashboard

@@ -16,7 +16,6 @@ class LandingController extends Controller
         // return view('index');
         $products = Products::with('categories')->get();
         $categori = Products::select('category_id')->groupby('category_id')->get();
-        // dd($products);
         $carousels = Carousels::all();
 
         // pashing data ke view bawa data product(join user dan categories), dan data categories
@@ -24,7 +23,17 @@ class LandingController extends Controller
     }
 
     // range harga products
-    public function range()
+    public function range(Request $request)
     {
+        $startPrice =  $request->priceMin;
+        $endPrice =  $request->priceMax;
+
+        $products = Products::with('categories')->select('*')->whereBetween('price', [$startPrice, $endPrice])->get();
+        $categori = Products::select('category_id')->groupby('category_id')->get();
+        $carousels = Carousels::all();
+
+        // dd("Start :" . $startPrice, "End :" . $endPrice);
+        // dd($cari);
+        return view('index', compact(['products', 'categori', 'carousels']));
     }
 }
