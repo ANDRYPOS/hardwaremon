@@ -194,7 +194,7 @@
                 <div class="row" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
-                            @if (!$categori)
+                            @if (!$products)
                             @else
                                 <li data-filter="*" class="filter-active">All</li>
                                 @foreach ($categori as $category)
@@ -238,22 +238,20 @@
                     @foreach ($products as $product)
                         @if ($product->status_id == 2)
                             <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $product->categories->name }}">
-                                <div class="cari">
-                                    <div class="portfolio-wrap rounded" style="height:250px">
-                                        <img src="{{ asset('storage/products_img/') }}/{{ $product->image }}"
-                                            class="img-fluid" alt="" style="height:250px; width:100%">
-                                        <div class="portfolio-info">
-                                            <h4>{{ $product->name }}</h4>
+                                <div class="portfolio-wrap rounded" style="height:250px">
+                                    <img src="{{ asset('storage/products_img/') }}/{{ $product->image }}"
+                                        class="img-fluid" alt="" style="height:250px; width:100%">
+                                    <div class="portfolio-info">
+                                        <h4>{{ $product->name }}</h4>
 
-                                            <p>Rp. {{ number_format($product->price) }}.-</p>
-                                            <div class="portfolio-links">
-                                                <a href="{{ asset('storage/products_img/') }}/{{ $product->image }}"
-                                                    data-gallery="portfolioGallery" class="portfolio-lightbox"
-                                                    title="{{ $product->description }}"><i class="bi bi-zoom-in"
-                                                        style="font-size:20px"></i></a>
-                                                <a href="{{ url('login') }}" title="Buy Now"><i
-                                                        class="bi bi-cart-check" style="font-size:20px"></i></a>
-                                            </div>
+                                        <p>Rp. {{ number_format($product->price) }}.-</p>
+                                        <div class="portfolio-links">
+                                            <a href="{{ asset('storage/products_img/') }}/{{ $product->image }}"
+                                                data-gallery="portfolioGallery" class="portfolio-lightbox"
+                                                title="{{ $product->description }}"><i class="bi bi-zoom-in"
+                                                    style="font-size:20px"></i></a>
+                                            <a href="{{ url('login') }}" title="Buy Now"><i
+                                                    class="bi bi-cart-check" style="font-size:20px"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -275,7 +273,7 @@
 
                 <div class="row d-md-flex justify-content-center">
                     <div class="col-lg-3 col-md-12 d-flex align-items-stretch">
-                        <div class="member m-auto" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member m-auto mb-3" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
                                 <img src="{{ asset('assets/img/me.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
@@ -294,7 +292,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member m-auto" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member m-auto mb-3" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
                                 <img src="{{ asset('assets/img/Kumparan.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
