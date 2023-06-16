@@ -54,35 +54,38 @@
                     </div><!-- End Products Card -->
                 @endif
 
-                <!-- banner columns -->
-                <div class="col-lg-12">
-                    <div class="row">
-                        <small class="m-auto">Hero Active : {{ $carouselsActive }}</small>
-                        <!-- carousels tittle count -->
-                        <div class="container horizontal-scrollable">
-                            <div class="row flex-nowrap d-flex flex-sm-column flex-md-row"
-                                style="overflow-x: auto;
+                @if (Auth::user()->role == 'staff' || Auth::user()->role == 'admin')
+                    <!-- banner columns -->
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <small class="m-auto">Hero Active : {{ $carouselsActive }}</small>
+                            <!-- carousels tittle count -->
+                            <div class="container horizontal-scrollable">
+                                <div class="row flex-nowrap d-flex flex-sm-column flex-md-row"
+                                    style="overflow-x: auto;
                             white-space: nowrap">
-                                @foreach ($carousels as $key => $banner)
-                                    @if ($banner->is_active == 2)
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="card">
-                                                <img src="{{ asset('storage/banner/') }}/{{ $banner->banner }}"
-                                                    class="card-img-top" alt="hero" style="height: 200px">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ $banner->name }}</h5>
-                                                    <p class="card-text">
-                                                        {{ $banner->status->name }}
-                                                    </p>
+                                    @foreach ($carousels as $key => $banner)
+                                        @if ($banner->is_active == 2)
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="card">
+                                                    <img src="{{ asset('storage/banner/') }}/{{ $banner->banner }}"
+                                                        class="card-img-top" alt="hero" style="height: 200px">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $banner->name }}</h5>
+                                                        <p class="card-text">
+                                                            {{ $banner->status->name }}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div><!-- End banner columns -->
+                    </div><!-- End banner columns -->
+                @endif
+
                 <div class="my-3"></div>
                 {{-- products column --}}
                 <div class="card">
