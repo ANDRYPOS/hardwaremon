@@ -92,7 +92,7 @@
                                                             class="bi bi-upload"></i></a>
                                                 </label>
                                                 <input id="imgInp" type="file" class="d-none" name="avatar"
-                                                    oninput="preview.src=window.URL.createObjectURL(this.files[0])" />
+                                                    oninput="preview.src=window.URL.createObjectURL(this.files[0])">
                                             </div>
                                         </div>
                                     </div>
