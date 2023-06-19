@@ -11,27 +11,18 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-    //tampil categories dan product pada form product
-    public function index()
-    {
-        $categories = Categories::all();
-        // tampilkan data table serta join (categories(id->category_id), users(id->createdby & verified_by))
-        $products = Products::with(['users', 'usersVerified', 'categories', 'status'])->get();
-
-        // pashing data ke view bawa data product(join user dan categories), dan data categories
-        return view('products.products', compact(['products', 'categories']));
-    }
-
     /**
      * tampil form setting
      */
     public function setting()
     {
-        //
         //panggil tb users untuk insert data products dropdown creatd by verified_by
         $users = User::all();
+
         //panggil tb categories untuk insert data products dropdown category_id
         $categories = Categories::all();
+
+        // get data products
         $products = Products::all();
         /* dd($products); */
         return view('products.productsSetting', compact(['products', 'categories', 'users']));
@@ -42,12 +33,13 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
-
         //panggil tb users untuk insert data products dropdown creatd by verified_by
         $users = User::all();
+
         //panggil tb categories untuk insert data products dropdown category_id
         $categories = Categories::all();
+
+        // get data products
         $products = Products::all();
 
         return view('products.productsCreate', compact(['products', 'categories', 'users']));
@@ -58,8 +50,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // dd($request->all());
+        //validation
         $message = [
             'required' => 'Tidak boleh kosong',
             'alpha' => 'Harus berisi text',
@@ -80,8 +71,13 @@ class ProductsController extends Controller
             $message
         );
 
+        // convert nama file
         $imageName = 'products_' . time() . '.' . $request->image->getClientOriginalExtension();
+
+        // masukkan file ke storage
         $path = Storage::putFileAs('public/products_img', $request->file('image'), $imageName);
+
+        // create data
         $products = Products::create([
             'category_id' => $request->category_id,
             'name' => $request->name,
@@ -92,7 +88,7 @@ class ProductsController extends Controller
             'verified_by' => Auth::user()->id,
             'verified_at' => now()
         ]);
-        return redirect('/products-setting')->with('toast_success', 'Data Berhasil Disimpan');
+        return redirect('/products-setting')->with('toast_success', 'Data Saved Successfully');
     }
 
     /**
@@ -100,12 +96,19 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
+        // get data user
         $users = User::all();
+
+        // get data categories
         $categories = Categories::all();
-        /* dd($products); */
+
+        // get data products dengan relasi categories
         $products = Products::with(['categories'])->get();
+
+        // get data products berdasarkan id
         $products = Products::where('id', $id)->get();
-        /* dd($products); */
+
+        // tampilkan view
         return view('products.productsEdit', compact(['products', 'categories', 'users']));
     }
 
@@ -114,6 +117,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request)
     {
+        // validation
         $message = [
             'required' => 'Tidak boleh kosong',
             'alpha' => 'Harus berisi text',
@@ -134,17 +138,25 @@ class ProductsController extends Controller
             $message
         );
 
+        // get data products berdasarkan id
         $products = Products::where('id', $request->id)->first();
 
+        // cek apakah update file
         if ($request->hasFile('image')) {
+
             // jika update hapus file lama
             $delete = Storage::delete('public/products_img/' . $products->image);
 
             // update file dengan yg baru
             $name = $request->file('image');
+
+            // convert nama file
             $imageName = 'products_' . time() . '.' . $name->getClientOriginalExtension();
+
+            // update file pada storage
             $path = Storage::putFileAs('public/products_img', $request->file('image'), $imageName);
 
+            // update data
             $products->update([
                 'image' => $imageName,
             ]);
@@ -160,34 +172,22 @@ class ProductsController extends Controller
             'verified_by' => Auth::user()->id,
             'verified_at' => now()
         ]);
-        return redirect('/products-setting')->with('toast_success', 'Data Berhasil Diupdate');
+        return redirect('/products-setting')->with('toast_success', 'Data Successfully Updated');
     }
-
 
     /**
      * proses hapus
      */
     public function destroy($id)
     {
-        //
-        // dd($id);
-        // $products = products::find($id)->delete();
+        // get data products brdasarkan id
         $products = Products::find($id);
+
+        // delete file pada storage
         $delete = Storage::delete('public/products_img/' . $products->image);
 
+        // delete data berdasarkan id
         $products->delete();
-        return redirect('/products-setting')->with('toast_success', 'Data Berhasil Didelete');
-    }
-
-    public function destroyDashboard($id)
-    {
-        //
-        // dd($id);
-        // $products = products::find($id)->delete();
-        $products = Products::find($id);
-        $delete = Storage::delete('public/products_img/' . $products->image);
-
-        $products->delete();
-        return redirect('/dashboard')->with('toast_success', 'Data Berhasil Didelete');
+        return redirect('/products-setting')->with('toast_success', 'Data Deleted Successfully');
     }
 }

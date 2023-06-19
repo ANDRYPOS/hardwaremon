@@ -174,12 +174,13 @@
                                                 <!-- edit -->
                                                 <a href="/products-edit/{{ $dataProducts->id }}" class="btn btn-info"
                                                     role="button"><i class="bi bi-pencil-square"></i></a>
+
+                                                <!-- delete admin only-->
                                                 @if (Auth::user()->role == 'admin')
                                                     <a href="" class="btn btn-danger" role="button"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#delete{{ $dataProducts->id }}"><i
                                                             class="bi bi-trash"></i></a>
-                                                    <!-- delete -->
                                                     <div class="modal fade" id="delete{{ $dataProducts->id }}"
                                                         tabindex="-1" data-bs-backdrop="false">
                                                         <div class="modal-dialog">

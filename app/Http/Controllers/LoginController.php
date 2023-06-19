@@ -11,7 +11,6 @@ class LoginController extends Controller
     //tampil halaman login
     public function index()
     {
-        //
         return view('login');
     }
 
@@ -27,23 +26,22 @@ class LoginController extends Controller
                 'password' => ['required'],
             ],
             [
-                'email.required' => 'Isi email terlebih dahulu!',
-                'password.required' => 'Password salah'
+                'email.required' => 'Email cannot be empty!',
+                'password.required' => 'Password cannot be empty!'
             ]
         );
-        // cek validasi request
 
         // proses
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/dashboard')->with('toast_success', 'Login successfuly ');
         }
 
         // jika invalid
         return back()->withErrors([
-            'email' => 'Email tidak ditemukan.',
-            'password' => 'Password salah'
+            'email' => 'Email not found',
+            'password' => 'Wrong password'
         ])->onlyInput(['email', 'password']);
     }
 
@@ -55,6 +53,6 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/')->with('succes', 'Berhasil logout');
+        return redirect('/');
     }
 }

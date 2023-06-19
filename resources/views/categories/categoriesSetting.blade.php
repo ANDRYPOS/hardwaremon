@@ -44,8 +44,12 @@
                                             <td>{{ date('d-M-Y', strtotime($dataCategories->created_at)) }}</td>
                                             <td>{{ date('d-M-Y', strtotime($dataCategories->updated_at)) }}</td>
                                             <td>
+                                                {{-- edit button --}}
                                                 <a href="/categories-edit/{{ $dataCategories->id }}"
                                                     class="btn btn-info my-2"><i class="bi bi-pencil-square"></i></a>
+                                                {{-- edit button/ --}}
+
+                                                {{-- hapus button admin only --}}
                                                 @if (Auth::user()->role == 'admin')
                                                     <a href="" class="btn btn-danger" role="button"
                                                         data-bs-toggle="modal"
@@ -86,6 +90,7 @@
                                                         </div>
                                                     </div><!-- End delete form-->
                                                 @endif
+                                                {{-- delete button/ --}}
                                             </td>
                                         </tr>
                                     @empty

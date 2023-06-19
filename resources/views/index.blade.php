@@ -63,7 +63,7 @@
                             bersedia melayani anda
                             dengan berbagai macam hardware tersedia untuk melengkapi kebutuhan anda.</strong>
                     </h2>
-                    <div data-aos="fade-up" data-aos-delay="800">
+                    <div data-aos="fade-up" data-aos-delay="600">
                         <a href="#about" class="btn-get-started scrollto">Get Started</a>
                     </div>
                 </div>
@@ -204,35 +204,6 @@
                             @endif
                         </ul>
                     </div>
-
-                    {{-- range --}}
-                    {{-- <div class="col col-md-2 mb-2">
-                        <form action="/action_page.php">
-                            <label for="customRange" class="form-label">Filter price</label>
-                            <input type="range" class="form-range" id="customRange" name="points">
-                            <small>price min </small>-<small> price max</small>
-                        </form>
-                    </div> --}}
-
-                    {{-- <div class="col col-md-3 mb-2">
-                        <form action="{{ url('/') }}" method="post">
-                            @csrf
-                            <label for="amount">Price range:</label>
-                            <input type="text" id="price" name="tampil"
-                                style="border:0; color:#f6931f; font-weight:bold;">
-                            <input type="hidden" id="price-min" name="priceMin"
-                                style="border:0; color:#f6931f; font-weight:bold;">
-                            <input type="hidden" id="price-max" name="priceMax"
-                                style="border:0; color:#f6931f; font-weight:bold;">
-                            <div id="slider-range"></div>
-                            <div class="col col-md-1">
-                                <input type="submit" role="button">
-                            </div>
-                        </form>
-                    </div> --}}
-
-                    {{-- range --}}
-
                 </div>
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300" id="tampil">
                     @foreach ($products as $product)
@@ -278,10 +249,13 @@
                                 <img src="{{ asset('assets/img/me.jpg') }}" class="img-fluid"
                                     style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
                                 <div class="social">
-                                    <a href="https://bit.ly/45WEXER"><i class="bi bi-github"></i></a>
-                                    <a href="https://bit.ly/3CqM76u"><i class="bi bi-whatsapp"></i></a>
-                                    <a href="https://bit.ly/3P5UFaG"><i class="bi bi-instagram"></i></a>
-                                    <a href="https://bit.ly/43VO1YL"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://bit.ly/45WEXER" target="_blank"><i class="bi bi-github"></i></a>
+                                    <a href="https://bit.ly/3CU1yol" target="_blank"><i
+                                            class="bi bi-chat-text"></i></a>
+                                    <a href="https://bit.ly/3P5UFaG" target="_blank"><i
+                                            class="bi bi-instagram"></i></a>
+                                    <a href="https://bit.ly/43VO1YL" target="_blank"><i
+                                            class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                             <div class="member-info">
@@ -295,12 +269,15 @@
                         <div class="member m-auto mb-3" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
                                 <img src="{{ asset('assets/img/Kumparan.jpg') }}" class="img-fluid"
-                                    style="height: 17rem; width: 15rem" alt="andryapp2006@gmail.com">
+                                    style="height: 17rem; width: 15rem" alt="adedwiputra16@gmail.com">
                                 <div class="social">
-                                    <a href="https://bit.ly/3Jd0WxE"><i class="bi bi-github"></i></a>
-                                    <a href="https://bit.ly/3JfhCEt"><i class="bi bi-whatsapp"></i></a>
-                                    <a href="https://bit.ly/43vsm9X"><i class="bi bi-instagram"></i></a>
-                                    <a href="https://bit.ly/43Crkco"><i class="bi bi-linkedin"></i></a>
+                                    <a href="https://bit.ly/3Jd0WxE" target="_blank"><i class="bi bi-github"></i></a>
+                                    <a href="https://bit.ly/3qOicD0" target="_blank"><i
+                                            class="bi bi-chat-text"></i></a>
+                                    <a href="https://bit.ly/43vsm9X" target="_blank"><i
+                                            class="bi bi-instagram"></i></a>
+                                    <a href="https://bit.ly/43Crkco" target="_blank"><i
+                                            class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                             <div class="member-info">

@@ -13,22 +13,25 @@ class UsersController extends Controller
     //tampil form group user
     public function usersGroup()
     {
+        // get data user dr database
         $users = User::all();
-        /* dd($products); */
+
+        // pashing data ke usergroup
         return view('users.usersGroup', compact('users'));
     }
 
     // filter admin
     public function admin()
     {
+        // get data user berdasarkan role admin
         $users = User::where('role', 'admin')->get();
-        /* dd($users); */
         return view('users.usersGroup', compact('users'));
     }
 
     // filter staff
     public function staff()
     {
+        // get data user berdasarkan role staff
         $users = User::where('role', 'staff')->get();
         return view('users.usersGroup', compact('users'));
     }
@@ -36,6 +39,7 @@ class UsersController extends Controller
     // filter user
     public function users()
     {
+        // get data user berdasarkan role user
         $users = User::where('role', 'user')->get();
         return view('users.usersGroup', compact('users'));
     }
@@ -46,9 +50,10 @@ class UsersController extends Controller
      */
     public function setting()
     {
-        //
+        //get data user dari database
         $users = User::all();
-        /* dd($categories); */
+
+        // pashing data ke view
         return view('users.usersSetting', compact('users'));
     }
 
@@ -57,8 +62,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        //get data user
         $users = User::all();
+
+        // pashing data ke view
         return view('users.usersCreate', compact('users'));
     }
 
@@ -67,7 +74,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // validation
         $message = [
             'required' => 'Tidak boleh kosong',
             'unique' => 'Sudah digunakan',
@@ -91,8 +98,14 @@ class UsersController extends Controller
             ],
             $message
         );
+
+        // convert nama file
         $imageName = 'avatar_user_' . time() . '.' . $request->avatar->getClientOriginalExtension();
+
+        // masukkan file ke storgae
         $path = Storage::putFileAs('public/avatars', $request->file('avatar'), $imageName);
+
+        // create data user ke database
         $users = User::create([
             'email' => $request->email,
             'name' => $request->name,
@@ -102,7 +115,7 @@ class UsersController extends Controller
             'password' => Hash::make($request->password),
             'avatar' => $imageName,
         ]);
-        return redirect('/users-setting')->with('toast_success', 'Data Berhasil Disimpan');
+        return redirect('/users-setting')->with('toast_success', 'Data Saved Successfully');
     }
 
     /**
@@ -110,9 +123,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
-        /* dd($products); */
+        // get data user berdasarkan id
         $users = User::where('id', $id)->get();
+
+        // pashing data ke view
         return view('users.usersEdit', compact('users'));
     }
 
@@ -121,8 +135,7 @@ class UsersController extends Controller
      */
     public function update(Request $request)
     {
-        //
-        // dd($request->all());
+        // validation
         $message = [
             'required' => 'Tidak boleh kosong',
             'unique' => 'Sudah digunakan',
@@ -145,7 +158,10 @@ class UsersController extends Controller
             $message
         );
 
+        // get user berdasarkan id
         $users = User::where('id', $request->id)->first();
+
+        // cek jika update file
         if ($request->hasFile('avatar')) {
 
             // hapus file
@@ -159,6 +175,7 @@ class UsersController extends Controller
                 'avatar' => $imageName
             ]);
         }
+        // update data
         $users->update([
             'email' => $request->email,
             'name' => $request->name,
@@ -168,7 +185,7 @@ class UsersController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect('/users-setting')->with('toast_success', 'Data Berhasil Diupdate');
+        return redirect('/users-setting')->with('toast_success', 'Data Successfully Updated');
     }
 
     /**
@@ -176,24 +193,32 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        // dd($id);
+        // get data user berdasarkan id
         $users = User::find($id);
 
+        // delete file dari storage
         $delete = Storage::delete('public/avatars/' . $users->avatar);
+
+        // delete data pada databsae
         $users->delete();
-        return redirect('/users-setting')->with('toast_success', 'Data Berhasil Didelete');
+        return redirect('/users-setting')->with('toast_success', 'Data Deleted Successfully');
     }
+
+
+    // update profil (khusus setting profil individu)
 
     /**
      * profil
      */
     public function profil($id)
     {
+        // get data berdasarkan id
         $users = User::where('id', $id)->get();
+
+        // pashing data ke view
         return view('users.usersProfil', compact('users'));
     }
 
-    // update profil (khusus sudah login)
     public function profilUpdate(Request $request)
     {
         /* dd($request->all()); */
@@ -218,8 +243,10 @@ class UsersController extends Controller
             $message
         );
 
+        // get user berdasarkan id
         $users = User::where('id', $request->id)->first();
-        // dd($users);
+
+        // cek jika update avatar
         if ($request->hasFile('avatar')) {
 
             // hapus file
@@ -241,6 +268,6 @@ class UsersController extends Controller
             'password' => $request->password,
         ]);
 
-        return back()->with('toast_success', 'Profil Berhasil Diupdate');
+        return back()->with('toast_success', 'Data Successfully Updated');
     }
 }

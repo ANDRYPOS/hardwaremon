@@ -15,7 +15,7 @@
             <div class="card-tittle m-auto py-2">Create Products</div>
             <div class="border-bottom"></div>
             <div class="card-body my-2">
-                <form method="post" enctype="multipart/form-data" action="/products-create">
+                <form method="post" enctype="multipart/form-data" action="{{ url('products-create') }}">
                     @csrf
                     <!-- form create products -->
                     {{-- category_id --}}

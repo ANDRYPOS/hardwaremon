@@ -12,28 +12,16 @@ class LandingController extends Controller
     //landing page
     public function index()
     {
-        //
-        // return view('index');
+        // data products dan relasi categories
         $products = Products::with('categories')->get();
+
+        // get data id categories pada products
         $categori = Products::select('category_id')->groupby('category_id')->get();
+
+        // get data carousels pada dtabase
         $carousels = Carousels::all();
 
-        // pashing data ke view bawa data product(join user dan categories), dan data categories
+        // pashing data keview index(landing)
         return view('index', compact(['products', 'carousels', 'categori']));
-    }
-
-    // range harga products
-    public function range(Request $request)
-    {
-        $startPrice =  $request->priceMin;
-        $endPrice =  $request->priceMax;
-
-        $products = Products::with('categories')->select('*')->whereBetween('price', [$startPrice, $endPrice])->get();
-        $categori = Products::select('category_id')->groupby('category_id')->get();
-        $carousels = Carousels::all();
-
-        // dd("Start :" . $startPrice, "End :" . $endPrice);
-        // dd($cari);
-        return view('index', compact(['products', 'categori', 'carousels']));
     }
 }

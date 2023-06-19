@@ -71,9 +71,6 @@
                     <div class="input-group">
                         <input class="form-control password mb-2" id="password" placeholder="Password" type="password"
                             name="password" value="{{ $dataUser->password }}" />
-                        <span class="input-group-text togglePassword mb-2">
-                            <i class="bi bi-eye-fill" id="check" style="cursor: pointer"></i>
-                        </span>
                     </div>
                     {{-- password --}}
 

@@ -12,16 +12,20 @@ class CategoriesController extends Controller
     //tampil form categories
     public function setting()
     {
-        //
+        //get data categories dari database
         $categories = Categories::all();
-        /* dd($categories); */
+
+        // tamplkan data ke view
         return view('categories.categoriesSetting', compact('categories'));
     }
 
     // tampil form create
     public function create()
     {
+        // get data categories dari database
         $categories = Categories::all();
+
+        // tampilkan halaman create
         return view('categories.categoriesCreate', compact('categories'));
     }
 
@@ -30,13 +34,14 @@ class CategoriesController extends Controller
     {
         //
         /* dd($request->all()); */
+
+        // valdation
         $message = [
             'required' => 'Tidak boleh kosong!',
             'alpha' => 'Harus berisi teks',
             'min' => 'Minimal 2 karakter',
             'unique' => 'Nama sudah digunakan',
         ];
-
         $request->validate(
             [
                 'name' => 'required|min:2|unique:categories,name',
@@ -56,13 +61,14 @@ class CategoriesController extends Controller
             $categories = Categories::create([
                 'name' => $namaCategories
             ]);
-            return redirect('/categories-setting')->with('toast_success', 'Data Berhasil Disimpan');
+            return redirect('/categories-setting')->with('toast_success', 'Data Saved Successfully');
         }
     }
 
     // tampil form edit
     public function edit($id)
     {
+        // get data untuk di edit berdasarkan id
         $categories = Categories::where('id', $id)->get();
         return view('categories.categoriesEdit', compact('categories'));
     }
@@ -73,6 +79,7 @@ class CategoriesController extends Controller
         //
         /* dd($request->all()); */
 
+        // validation
         $message = [
             'required' => 'Tidak boleh kosong!',
             'alpha' => 'Harus berisi teks',
@@ -95,20 +102,25 @@ class CategoriesController extends Controller
             $categories = Categories::find($request->id)->update([
                 'name' => $request->name,
             ]);
-            return redirect('/categories-setting')->with('toast_success', 'Data Berhasil Diupdate');
+            return redirect('/categories-setting')->with('toast_success', 'Data Successfully Updated');
         }
         // jika sudah digunakan maka gagal update
-        return redirect('/categories-setting')->with('toast_success', 'Tidak Ada Data Update');
+        return redirect('/categories-setting')->with('toast_success', 'No Data Updates');
     }
 
     // proses delete
     public function destroy($id)
     {
         // dd($id);
+        // get data berdasarkan id categroeis dan delete
         $categories = Categories::find($id)->delete();
+
+        // jika berhasil maka tampil notifikasi berhasil
         if ($categories) {
-            return redirect('/categories-setting')->with('toast_success', 'Data Berhasil Didelete');
+            return redirect('/categories-setting')->with('toast_success', 'Data Deleted Successfully');
         }
+
+        // jika gagal maka tampil notifikasi gagal
         return redirect('/categories-setting')->with('error', 'Gagal hapus!');
     }
 }

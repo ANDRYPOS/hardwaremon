@@ -47,6 +47,6 @@ class DashboardController extends Controller
             'status_id' => 3,
             'verified_by' => Auth::user()->id
         ]);
-        return redirect('/dashboard')->with('toast_success', 'Product accepted succesfully');
+        return redirect('/dashboard')->with('toast_success', 'Product succesfully rejected');
     }
 }
