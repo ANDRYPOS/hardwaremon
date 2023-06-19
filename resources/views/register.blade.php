@@ -20,55 +20,73 @@
 
 <body>
     <div class="vh-100 d-flex justify-content-center align-items-center">
-        <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
-            <h2 class="text-center mb-4 text-primary">Register Form</h2>
+        <div class="col-md-4 p-5 shadow-lg border rounded-5 border-text-muted">
+            <h2 class="text-center mb-4 text-secondary">Registrasi Form</h2>
             <form action="/register-store" method="post">
                 @csrf
-                <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Username: @error('name')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </label>
-                    <input type="text" name="name"
-                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['name']) ? 'is-invalid' : '' }}"
-                        id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('name') }}">
-                </div>
-                <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Email address: @error('email')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </label>
-                    <input type="email" name="email"
-                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['email']) ? 'is-invalid' : '' }}"
-                        id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('email') }}">
-                </div>
-                <div class="mb-1">
-                    <label for="exampleInputPassword1" class="form-label">Password: @error('password')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </label>
-                    <input type="password" name="password"
-                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['password']) ? 'is-invalid' : '' }}"
-                        id="exampleInputPassword1">
-                </div>
 
-                <div class="mb-2">
-                    <label for="exampleInputphone" class="form-label">Phone: @error('phone')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </label>
-                    <input type="text" name="phone"
-                        class="form-control bg-info bg-opacity-10 border border-primary {{ isset($errors->messages()['phone']) ? 'is-invalid' : '' }}"
-                        id="exampleInputphone" value="{{ old('phone') }}">
+                {{-- username --}}
+                <label for="name" class="form-label">Username:</label>
+                @error('name')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+                <input type="text" name="name" class="form-control mb-2" id="name"
+                    value="{{ old('name') }}" class="form-control bg-info bg-opacity-10 border border-primary">
+
+                {{-- end username --}}
+
+                {{-- email --}}
+                <label for="email" class="form-label">Email:</label>
+                @error('email')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+                <input type="email" name="email" class="form-control mb-2" id="email"
+                    value="{{ old('email') }}" class="form-control bg-info bg-opacity-10 border border-primary">
+                {{-- email --}}
+
+                {{-- password --}}
+                <label for="pw" class="form-label">Password: @error('password')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </label>
+                <div class="input-group mb-2">
+                    <input type="password" name="password" class="form-control" aria-describedby="basic-addon2"
+                        id="pw" class="form-control bg-info bg-opacity-10 border border-primary">
+                    <span class="input-group-text" id="basic-addon2">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" id="flexSwitchCheckChecked"
+                                onclick="myFunction()" style="cursor: pointer">
+                        </div>
+                    </span>
                 </div>
+                {{-- password --}}
+
+                {{-- phone --}}
+                <label for="phone" class="form-label">Phone:</label>
+                @error('email')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+                <input type="text" name="phone" class="form-control mb-3" id="phone"
+                    value="{{ old('phone') }}" class="form-control bg-info bg-opacity-10 border border-primary">
+                {{-- end phone --}}
 
                 <div class="d-grid">
-                    <input type="submit" value="submit" class="btn btn-primary">
+                    <input type="submit" value="submit" class="btn btn-secondary">
                 </div>
                 <p class="small"><a class="text-primary" href="{{ url('login') }}">Have an account?</a></p>
             </form>
         </div>
     </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("pw");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>
