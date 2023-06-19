@@ -59,7 +59,10 @@
                                             alt="hero" style="height: 200px">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $banner->name }}</h5>
-                                            <p class="card-text">
+                                            <p
+                                                @if ($banner->is_active == 1) class="text-warning"
+                                                @elseif ($banner->is_active == 2) class ="text-primary"
+                                                @else class="text-danger" @endif>
                                                 {{ $banner->status->name }}
                                             </p>
                                             @if (Auth::user()->role == 'admin')

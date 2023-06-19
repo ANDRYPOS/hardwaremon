@@ -65,9 +65,6 @@
                         class="form-control password mb-2 {{ isset($errors->messages()['password']) ? 'is-invalid' : '' }}"
                         id="password" placeholder="Password" type="password" name="password"
                         value="{{ old('password') }}" />
-                    <span class="input-group-text togglePassword mb-2">
-                        <i class="bi bi-eye-fill" class="form-checkbox" style="cursor: pointer"></i>
-                    </span>
                 </div>
                 {{-- passwrod --}}
 

@@ -72,7 +72,7 @@
                                                         class="card-img-top" alt="hero" style="height: 200px">
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ $banner->name }}</h5>
-                                                        <p class="card-text">
+                                                        <p class="card-text text-primary">
                                                             {{ $banner->status->name }}
                                                         </p>
                                                     </div>
@@ -95,7 +95,7 @@
                             <div class="search-bar my-2">
                                 <!-- button Add -->
                                 <div class="card-tittle text-center">
-                                    Products
+                                    Products List
                                 </div>
                             </div>
                             {{-- result --}}
@@ -247,7 +247,13 @@
                                                     </td>
                                                     {{-- view --}}
                                                 @else
-                                                    <td>{{ $dataProducts->status->name }}</td>
+                                                    <td
+                                                        @if ($dataProducts->status_id == 1) class="text-warning"
+                                                    @elseif ($dataProducts->status_id == 2)
+                                                    class="text-primary"
+                                                    @else
+                                                    class="text-danger" @endif>
+                                                        {{ $dataProducts->status->name }}</td>
                                                 @endif
                                                 @if (Auth::user()->role == 'admin')
                                                     <td>

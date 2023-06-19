@@ -71,12 +71,12 @@
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                         <div class="carousel-inner" style=" height:400px">
                             @foreach ($carousels as $key => $hero)
-                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                    @if ($hero->is_active == 2)
+                                @if ($hero->is_active == 2)
+                                    <div class="carousel-item {{ $key == 2 ? 'active' : '' }}">
                                         <img src="{{ asset('storage/banner/') }}/{{ $hero->banner }}"
                                             class="d-block w-100 rounded" alt="Cinque Terre" style="height: 400px">
-                                    @endif
-                                </div>
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -349,88 +349,6 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 30000000,
-                values: [300000, 10000000],
-                slide: function(event, ui) {
-                    $("#price-min").val(ui.values[0]);
-                    $("#price-max").val(ui.values[1]);
-                    $("#price").val("Rp. " + ui.values[0] + " - Rp. " + ui.values[1]);
-                }
-            });
-            $("#price-min").val($("#slider-range").slider("values", 0));
-            $("#price-max").val($("#slider-range").slider("values", 1));
-
-            $("#price").val("Rp. " + $("#slider-range").slider("values", 0) +
-                " - Rp. " + $("#slider-range").slider("values", 1));
-
-        });
-    </script>
-
-    {{-- <script type="text/javascript">
-        $(document).ready(function() {
-
-            $('#tampil').load("tampil.php");
-
-            $("#Submit").click(function() {
-                var data = $('#form').serialize();
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ url('/') }}",
-                    data: data,
-
-                    cache: false,
-                    success: function(data) {
-                        $('#tampil').load("tampil.php");
-                    }
-                });
-            });
-        });
-    </script> --}}
-
-    {{-- <script>
-        function send() {
-            var start = $('#amount_start').val();
-            var end = $('#amount_end').val();
-
-            $.ajax({
-                method: "get",
-                url: '/range',
-                data: "start=" +
-                    start + "& +end =" + end,
-                beforeSend: function() {
-                    $(#showPrice).show("fast");
-                },
-
-                complete: function() {
-                    $(#showPrice).hide("fast");
-                },
-
-                success: function(html) {
-                    $('#showDiv').show('slow');
-                    $('#showDiv').html(html);
-                },
-            });
-        }
-    </script> --}}
-    {{-- search --}}
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
-    {{-- <script>
-        $(document).ready(function() {
-            $("#search").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#searchCard .cari").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script> --}}
 </body>
 
 </html>
