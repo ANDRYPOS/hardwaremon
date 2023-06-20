@@ -300,7 +300,7 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-12 text-lg-left text-center">
                     <div class="copyright">
-                        <strong><span>HardwareMon</span></strong>. All Reserved By Andri Elistiawan&copy;2023
+                        <strong><span>HardwareMon</span></strong>. By Andri Elistiawan
                     </div>
                 </div>
             </div>

@@ -14,8 +14,13 @@
 
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                        <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}" alt="Profile" class="rounded"
-                            style="height:10rem; width:10rem">
+                        @if (Auth::user()->avatar == '')
+                            <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}" alt="Profile"
+                                class="rounded m-auto" style="width:100px; height:100px">
+                        @else
+                            <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}" alt="Profile"
+                                class="rounded" style="height:10rem; width:10rem">
+                        @endif
                         <h2>{{ Auth::user()->name }}</h2>
                         <h3>{{ Auth::user()->role }}</h3>
                     </div>
@@ -82,9 +87,15 @@
                                         <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
                                             Image</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}"
-                                                alt="Profile" class="rounded" id="preview"
-                                                style="width: 10rem; height:10rem">
+                                            @if (Auth::user()->avatar == '')
+                                                <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}" alt="Profile"
+                                                    class="rounded m-auto" style="width:100px; height:100px" id="preview"
+                                                    style="width: 10rem; height:10rem">
+                                            @else
+                                                <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}"
+                                                    alt="Profile" class="rounded" id="preview"
+                                                    style="width: 10rem; height:10rem">
+                                            @endif
 
                                             <div class="pt-2">
                                                 <label for="imgInp" class="custom-file-upload">
@@ -147,7 +158,7 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        <button type="submit" class="btn btn-primary float-end">Save Changes</button>
                                     </div>
                                 </form><!-- End Profile Edit Form -->
                             </div>

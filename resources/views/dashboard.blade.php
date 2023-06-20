@@ -58,7 +58,6 @@
                     <!-- banner columns -->
                     <div class="col-lg-12">
                         <div class="row">
-                            <small class="m-auto">Hero Active : {{ $carouselsActive }}</small>
                             <!-- carousels tittle count -->
                             <div class="container horizontal-scrollable">
                                 <div class="row flex-nowrap d-flex flex-sm-column flex-md-row"
@@ -272,7 +271,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title">
-                                                                                {{ $dataProducts->status_id == 2 ? 'Sudah di accept!' : 'Accepted Product?' }}
+                                                                                {{ $dataProducts->status_id == 2 ? 'The product has been accepted' : 'Accept the product?' }}
                                                                             </h5>
                                                                             <button type="button" class="btn-close"
                                                                                 data-bs-dismiss="modal"
@@ -319,7 +318,7 @@
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title">
-                                                                                {{ $dataProducts->status_id == 2 ? 'Tolak Banner?' : 'Sudah ditolak' }}
+                                                                                {{ $dataProducts->status_id == 2 ? 'Reject product?' : 'Product has been rejected' }}
                                                                             </h5>
                                                                             <button type="button" class="btn-close"
                                                                                 data-bs-dismiss="modal"

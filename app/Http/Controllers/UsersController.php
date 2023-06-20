@@ -76,20 +76,18 @@ class UsersController extends Controller
     {
         // validation
         $message = [
-            'required' => 'Tidak boleh kosong',
-            'unique' => 'Sudah digunakan',
-            'email' => 'Harus disertai @',
-            'alpha' => 'Harus berisi teks',
-            'min' => 'Minimal 2 karakter',
-            'numeric' => 'Harus berisi numeric',
-            'mimes' => 'Format tidak sesuai: jpeg,png,jpg',
-            'max' => 'Max 2 Mb',
-            'string' => 'Harus string'
+            'required' => 'Cannot be empty!',
+            'unique' => 'Email already used!',
+            'email' => 'Must be accompanied @',
+            'min' => 'Minimum 2 characters',
+            'numeric' => 'Must contain numeric',
+            'mimes' => 'Format not found: jpeg,png,jpg',
+            'max' => 'Maximum 2 Mb',
         ];
         $request->validate(
             [
                 'email' => 'required|email|unique:users,email',
-                'name' => 'required|string|min:2',
+                'name' => 'required|min:2',
                 'role' => 'required',
                 'phone' => 'required|numeric',
                 'address' => 'required|min:2',
@@ -137,19 +135,17 @@ class UsersController extends Controller
     {
         // validation
         $message = [
-            'required' => 'Tidak boleh kosong',
-            'unique' => 'Sudah digunakan',
-            'email' => 'Harus disertai @',
-            'alpha' => 'Harus berisi teks',
-            'min' => 'Minimal 2 karakter',
-            'numeric' => 'Harus berisi numeric',
-            'mimes' => 'Format tidak sesuai: jpeg,png,jpg',
-            'max' => 'Max 2 Mb',
-            'string' => 'Harus string'
+            'required' => 'Cannot be empty!',
+            'unique' => 'Email already used!',
+            'email' => 'Must be accompanied @',
+            'min' => 'Minimum 2 characters',
+            'numeric' => 'Must contain numeric',
+            'mimes' => 'Format not found: jpeg,png,jpg',
+            'max' => 'Maximum 2 Mb',
         ];
         $request->validate(
             [
-                'name' => 'required|string|min:2',
+                'name' => 'required|min:2',
                 'role' => 'required',
                 'phone' => 'required|numeric',
                 'address' => 'required|min:2',
@@ -223,18 +219,17 @@ class UsersController extends Controller
     {
         /* dd($request->all()); */
         $message = [
-            'unique' => 'Sudah digunakan',
-            'email' => 'Harus disertai @',
-            'min' => 'Minimal 2 karakter',
-            'numeric' => 'Harus berisi numeric',
-            'mimes' => 'Format tidak sesuai: jpeg,png,jpg',
-            'max' => 'Max 2 Mb',
-            'string' => 'Harus string',
-            'required' => 'Harus diisi!'
+            'required' => 'Cannot be empty!',
+            'unique' => 'Email already used!',
+            'email' => 'Must be accompanied @',
+            'min' => 'Minimum 2 characters',
+            'numeric' => 'Must contain numeric',
+            'mimes' => 'Format not found: jpeg,png,jpg',
+            'max' => 'Maximum 2 Mb',
         ];
         $request->validate(
             [
-                'name' => 'required|string|min:2',
+                'name' => 'required|min:2',
                 'phone' => 'required|numeric',
                 'address' => 'required|min:2',
                 'email' => 'required',

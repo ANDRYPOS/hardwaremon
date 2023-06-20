@@ -23,8 +23,14 @@
 
                     {{-- avatars view --}}
                     <div class="card m-auto my-4" style="height: 90px; width:90px">
-                        <img src="{{ asset('storage/avatars/') }}/{{ $dataUser->avatar }}" alt="{{ $dataUser->name }}"
-                            title="{{ $dataUser->name }}" width="90" height="90" class="rounded mb-2 m-auto">
+                        @if ($dataUser->avatar == '')
+                            <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}" alt="Profile"
+                                class="rounded m-auto" style="width:100px; height:100px" id="preview"
+                                style="width: 10rem; height:10rem">
+                        @else
+                            <img src="{{ asset('storage/avatars/') }}/{{ $dataUser->avatar }}" alt="{{ $dataUser->name }}"
+                                title="{{ $dataUser->name }}" width="90" height="90" class="rounded mb-2 m-auto">
+                        @endif
                     </div>
                     {{-- avatars view --}}
 

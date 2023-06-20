@@ -49,9 +49,18 @@
                                     @forelse ($users as $dataUser)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}.</th>
-                                            <td><img src="{{ asset('storage/avatars') }}/{{ $dataUser->avatar }}"
-                                                    alt="{{ $dataUser->name }}" title="{{ $dataUser->name }}" width="80"
-                                                    height="80" class="rounded"></td>
+                                            <td>
+                                                @if ($dataUser->avatar == '')
+                                                    <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}"
+                                                        alt="Profile" class="rounded m-auto"
+                                                        style="width:100px; height:100px" id="preview"
+                                                        style="width: 10rem; height:10rem">
+                                                @else
+                                                    <img src="{{ asset('storage/avatars') }}/{{ $dataUser->avatar }}"
+                                                        alt="{{ $dataUser->name }}" title="{{ $dataUser->name }}"
+                                                        width="80" height="80" class="rounded">
+                                                @endif
+                                            </td>
                                             <td>{{ $dataUser->name }}</td>
                                             <td>{{ $dataUser->email }}</td>
                                             <td>{{ $dataUser->phone }}</td>

@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard')->with('toast_success', 'Login successfuly ');
+            return redirect()->intended('/dashboard')->with('toast_success', 'Login successfully');
         }
 
         // jika invalid

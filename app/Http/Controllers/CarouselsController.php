@@ -22,10 +22,10 @@ class CarouselsController extends Controller
     {
         // validation
         $message = [
-            'required' => 'Tidak boleh kosong',
-            'mimes' => 'Format tidak sesuai: jpeg,png,jpg',
-            'max' => 'Max 2 Mb',
-            'min' => 'Minimal 2 karakter'
+            'required' => 'Cannot be empty',
+            'mimes' => 'Format not found: jpeg,png,jpg',
+            'max' => 'Maximum 2 Mb',
+            'min' => 'Minimum 2 karakter'
         ];
         $request->validate(
             [

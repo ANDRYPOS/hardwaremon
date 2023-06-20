@@ -46,7 +46,6 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
-                    <small class="m-auto">Hero Active : {{ $carouselsCount }}</small>
                     <!-- carousels tittle count -->
                     <div class="container horizontal-scrollable">
                         <div class="row flex-nowrap d-flex flex-sm-column flex-lg-row"

@@ -52,12 +52,11 @@ class ProductsController extends Controller
     {
         //validation
         $message = [
-            'required' => 'Tidak boleh kosong',
-            'alpha' => 'Harus berisi text',
-            'min' => 'Minimal 2 digit',
-            'numeric' => 'Harus berisi angka',
-            'mimes' => 'Format file tidak ditemukan : jpeg,png,jpg',
-            'max' => 'Maximal 2 MB'
+            'required' => 'Cannot be empty!',
+            'min' => 'Minimum 2 characters',
+            'numeric' => 'Must contain numbers',
+            'mimes' => 'File format not found : jpeg,png,jpg',
+            'max' => 'Maximum 2 MB'
         ];
 
         $request->validate(
@@ -119,12 +118,11 @@ class ProductsController extends Controller
     {
         // validation
         $message = [
-            'required' => 'Tidak boleh kosong',
-            'alpha' => 'Harus berisi text',
-            'min' => 'Minimal 2 digit',
-            'numeric' => 'Harus berisi angka',
-            'mimes' => 'Format file tidak ditemukan : jpeg,png,jpg',
-            'max' => 'Maximal 2 MB'
+            'required' => 'Cannot be empty!',
+            'min' => 'Minimum 2 characters',
+            'numeric' => 'Must contain numbers',
+            'mimes' => 'File format not found : jpeg,png,jpg',
+            'max' => 'Maximum 2 MB'
         ];
 
         $request->validate(

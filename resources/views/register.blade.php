@@ -63,7 +63,7 @@
 
                 {{-- phone --}}
                 <label for="phone" class="form-label">Phone:</label>
-                @error('email')
+                @error('phone')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
                 <input type="text" name="phone" class="form-control mb-3" id="phone"

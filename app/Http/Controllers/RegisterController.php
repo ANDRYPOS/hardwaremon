@@ -46,6 +46,6 @@ class RegisterController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
-        return redirect('/login')->with('success', 'Berhasil registrasi');
+        return redirect('/login')->with('toast_success', 'Registrasi succesfully');
     }
 }

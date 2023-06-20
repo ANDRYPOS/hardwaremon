@@ -79,7 +79,7 @@
                         <li class="d-flex flex-column">
                             @if (Auth::user()->avatar == '')
                                 <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}" alt="Profile"
-                                    class="rounded-circle m-auto" style="width:100px; height:100px">
+                                    class="rounded m-auto" style="width:100px; height:100px">
                             @else
                                 <img src="{{ asset('storage/avatars/') }}/{{ Auth::user()->avatar }}" alt="Profile"
                                     class="rounded m-auto" style="width:70px; height:100px">
@@ -182,7 +182,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            <strong><span>HardwareMon</span></strong>. All Reserved By Andri Elistiawan&copy;2023
+            <strong><span>HardwareMon</span></strong>. By Andri Elistiawan
         </div>
     </footer><!-- End Footer -->
 

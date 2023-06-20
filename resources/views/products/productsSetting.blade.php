@@ -124,7 +124,7 @@
                                                                                                     Price</div>
                                                                                                 <div
                                                                                                     class="col-lg-9 col-md-8">
-                                                                                                    Rp.{{ $dataProducts->price }}
+                                                                                                    Rp.{{ number_format($dataProducts->price) }}
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="row mb-0">

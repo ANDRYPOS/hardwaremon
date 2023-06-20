@@ -37,10 +37,9 @@ class CategoriesController extends Controller
 
         // valdation
         $message = [
-            'required' => 'Tidak boleh kosong!',
-            'alpha' => 'Harus berisi teks',
+            'required' => 'Cannot be empty!',
             'min' => 'Minimal 2 karakter',
-            'unique' => 'Nama sudah digunakan',
+            'unique' => 'The name is already in use!',
         ];
         $request->validate(
             [
@@ -81,8 +80,7 @@ class CategoriesController extends Controller
 
         // validation
         $message = [
-            'required' => 'Tidak boleh kosong!',
-            'alpha' => 'Harus berisi teks',
+            'required' => 'Cannot be empty!',
             'min' => 'Minimal 2 karakter',
         ];
 
