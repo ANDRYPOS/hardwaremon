@@ -44,9 +44,14 @@
                                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
                                     Profile</button>
                             </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#password-edit">Edit
+                                    Password</button>
+                            </li>
                         </ul>
                         <div class="tab-content pt-2">
-
+                            {{-- overview profil --}}
                             <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                 <h5 class="card-title">Profile Details</h5>
                                 <div class="row">
@@ -75,7 +80,9 @@
                                 </div>
 
                             </div>
+                            {{-- end overview profil --}}
 
+                            {{-- edit profil --}}
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
@@ -149,20 +156,50 @@
                                         </div>
                                     </div>
 
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary float-end">Save Changes</button>
+                                    </div>
+                                </form><!-- End Profile Edit Form -->
+                            </div>
+                            {{-- end edit profil --}}
+
+                            {{-- password edit --}}
+                            <div class="tab-pane fade password-edit pt-3" id="password-edit">
+                                <form action="{{ url('profil-updatePassword') }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                     <div class="row mb-3">
-                                        <label for="Password" class="col-md-4 col-lg-3 col-form-label">Password</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input name="password" type="password" class="form-control" id="password"
-                                                value="{{ Auth::user()->password }}" required>
+                                        <div class="input-group mb-3">
+                                            <label for="Password"
+                                                class="col-md-4 col-lg-3 col-form-label rounded">Password</label>
+                                            <input type="password" name="password" aria-describedby="basic-addon2"
+                                                class="form-control rounded-start">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="input-group mb-3">
+                                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label rounded">New
+                                                Password</label>
+                                            <input type="password" name="newPassword" aria-describedby="basic-addon2"
+                                                id="pw" class="form-control rounded-start">
+                                            <span class="input-group-text" id="basic-addon2">
+                                                <div class="form-check form-switch">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="flexSwitchCheckChecked" onclick="myFunction()"
+                                                        style="cursor: pointer">
+                                                </div>
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary float-end">Save Changes</button>
                                     </div>
-                                </form><!-- End Profile Edit Form -->
+                                </form>
                             </div>
-
+                            {{-- end password edit --}}
                         </div><!-- End Bordered Tabs -->
 
                     </div>
@@ -171,4 +208,14 @@
             </div>
         </div>
     </section>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("pw");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 @endsection

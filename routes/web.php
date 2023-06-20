@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
     // user profil
     Route::get('/users-profil/{id}', [UsersController::class, 'profil']); //form setting profil
     Route::put('/profil-update', [UsersController::class, 'profilUpdate']); //form setting profil update
+    Route::post('/profil-updatePassword', [UsersController::class, 'password']); //form setting profil update
 
     //products
     Route::get('/products-setting', [ProductsController::class, 'setting'])->middleware(['admin']); //view products setting form

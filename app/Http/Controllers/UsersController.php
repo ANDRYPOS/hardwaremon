@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -233,7 +235,6 @@ class UsersController extends Controller
                 'phone' => 'required|numeric',
                 'address' => 'required|min:2',
                 'email' => 'required',
-                'password' => 'required',
             ],
             $message
         );
@@ -260,9 +261,31 @@ class UsersController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'address' => $request->address,
-            'password' => $request->password,
         ]);
 
         return back()->with('toast_success', 'Data Successfully Updated');
+    }
+
+    public function password(Request $request)
+    {
+        $auth = Auth::user();
+
+        // The passwords matches
+        if (!Hash::check($request->get('password'), $auth->password)) {
+            return back()->with('toast_error', "Current Password is Invalid");
+        }
+
+        // Current password and new password same
+        if (strcmp($request->get('password'), $request->newPassword) == 0) {
+            return redirect()->back()->with("toast_error", "New Password cannot be same as your current password.");
+        }
+
+        $user =  User::find($auth->id);
+        $user->password =  Hash::make($request->newPassword);
+        $user->save();
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login')->with('toast_success', "The password has been changed successfully, please login again!");
     }
 }

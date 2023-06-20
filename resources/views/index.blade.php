@@ -71,12 +71,10 @@
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                         <div class="carousel-inner" style=" height:400px">
                             @foreach ($carousels as $key => $hero)
-                                @if ($hero->is_active == 2)
-                                    <div class="carousel-item {{ $key == 2 ? 'active' : '' }}">
-                                        <img src="{{ asset('storage/banner/') }}/{{ $hero->banner }}"
-                                            class="d-block w-100 rounded" alt="Cinque Terre" style="height: 400px">
-                                    </div>
-                                @endif
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('storage/banner/') }}/{{ $hero->banner }}"
+                                        class="d-block w-100 rounded" alt="Cinque Terre" style="height: 400px">
+                                </div>
                             @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

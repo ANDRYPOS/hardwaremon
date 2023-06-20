@@ -19,7 +19,9 @@ class LandingController extends Controller
         $categori = Products::select('category_id')->groupby('category_id')->get();
 
         // get data carousels pada dtabase
-        $carousels = Carousels::all();
+        // $carousels = Carousels::all();
+        $carousels = Carousels::where('is_active', '2')->get();
+        // dd($carousels);
 
         // pashing data keview index(landing)
         return view('index', compact(['products', 'carousels', 'categori']));
