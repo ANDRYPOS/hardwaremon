@@ -86,6 +86,7 @@
                 @endif
 
                 <div class="my-3"></div>
+
                 {{-- products column --}}
                 <div class="card">
                     <div class="card-body">
@@ -260,7 +261,8 @@
                                                         <div class="text-center fs-4">
                                                             {{-- accepted --}}
                                                             <a href="" role="button" type="submit"
-                                                                class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                                class="btn btn-outline-primary mb-2"
+                                                                data-bs-toggle="modal"
                                                                 data-bs-target="#aceptedproducts{{ $dataProducts->id }}"><i
                                                                     class="bi bi-hand-thumbs-up-fill mx-4"></i></a>
                                                             <!-- acepted form-->
@@ -308,7 +310,7 @@
 
                                                             {{-- decline --}}
                                                             <a href="" role="button" type="submit"
-                                                                class="btn btn-outline-success" data-bs-toggle="modal"
+                                                                class="btn btn-outline-danger mb-2" data-bs-toggle="modal"
                                                                 data-bs-target="#decline{{ $dataProducts->id }}"><i
                                                                     class="bi bi-hand-thumbs-down-fill mx-4"></i></a>
                                                             <!-- decline form-->

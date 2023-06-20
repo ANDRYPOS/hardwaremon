@@ -112,7 +112,7 @@
 
                                                     {{-- decline --}}
                                                     <a href="" role="button" type="submit"
-                                                        class="btn btn-outline-success" data-bs-toggle="modal"
+                                                        class="btn btn-outline-danger" data-bs-toggle="modal"
                                                         data-bs-target="#decline{{ $banner->id }}"><i
                                                             class="bi bi-hand-thumbs-down-fill mx-4"></i></a>
                                                     <!-- decline form-->
@@ -157,7 +157,7 @@
 
                                                     {{-- trash --}}
                                                     <a href="" role="button" type="submit"
-                                                        class="btn btn-outline-danger" data-bs-toggle="modal"
+                                                        class="btn btn-outline-success" data-bs-toggle="modal"
                                                         data-bs-target="#trash{{ $banner->id }}"><i
                                                             class="bi bi-trash-fill mx-4"></i></a>
                                                     <!-- trash form-->
