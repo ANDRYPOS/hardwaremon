@@ -44,6 +44,7 @@
                     <li><a class="nav-link scrollto d-flex justify-content-center" href="#services">Services</a></li>
                     <li><a class="nav-link scrollto d-flex justify-content-center" href="#products">Products</a></li>
                     <li><a class="nav-link scrollto d-flex justify-content-center" href="#team">Team</a></li>
+                    <li><a class="nav-link scrollto d-flex justify-content-center" href="#contact">Contact</a></li>
                     <li><a class="getstarted scrollto d-flex justify-content-center" href="{{ url('login') }}">Sign
                             in</a></li>
                 </ul>
@@ -95,38 +96,6 @@
     </section><!-- ======= End Hero ======= -->
 
     <main id="main">
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients clients">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/100px-HP_logo_2012.svg.png"
-                            class="img-fluid" alt="" data-aos="zoom-in">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/custom-asus-logo-images-png-5.png"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/republic-of-gamers-asus-logo-png-21.png"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuSbCRGr9GwwD9eXsf1ahD9rT1M6pyqequRIoV8GJdVFrWP10&s"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa4XQnW564HkBxFUBSYV2XMtt64f8CKtYjZLTq9QWBgELfnuT1&s"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3U3siCaYqMc-n4wQbwDAXZtVySUHS19i-YMEeK7NAfrBav5k&s"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Clients Section -->
-
         <!-- ======= About Us Section ======= -->
         <section id="about" class="about">
             <div class="container">
@@ -138,7 +107,8 @@
                 <div class="row content">
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
                         <p>
-                            HardwareMon berfokus pada penyediaan hardware.
+                            HardwareMon berdiri sejak tahun 2023. dan berfokus pada penyediaan hardware beserta layanan
+                            dan kepuasan pelanggan.
                             Aneka ragam hardware tersedia disini.
                             Selain penjualan, kami juga menyediakan layanan instalasi hardware sesuai kebutuhan
                             pembelian.
@@ -322,6 +292,83 @@
             </div>
         </section><!-- End Team Section -->
 
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients clients">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/100px-HP_logo_2012.svg.png"
+                            class="img-fluid" alt="" data-aos="zoom-in">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/custom-asus-logo-images-png-5.png"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/republic-of-gamers-asus-logo-png-21.png"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuSbCRGr9GwwD9eXsf1ahD9rT1M6pyqequRIoV8GJdVFrWP10&s"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa4XQnW564HkBxFUBSYV2XMtt64f8CKtYjZLTq9QWBgELfnuT1&s"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3U3siCaYqMc-n4wQbwDAXZtVySUHS19i-YMEeK7NAfrBav5k&s"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Clients Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 m-auto" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-about">
+                            <h3>HardwareMon</h3>
+                            <p>Penyedia hardware terlengkap dan terpercaya. Kami bersedia melayani anda dengan harga
+                                terjangkau untuk melengkapi kebutuhan anda.</p>
+                            <div class="social-links">
+                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mt-4 mt-md-0 m-auto" data-aos="fade-up" data-aos-delay="200">
+                        <div class="info">
+                            <div>
+                                <i class="ri-map-pin-line"></i>
+                                <p>Jl.Raya Parung - Bogor<br>Jawa Barat, 16330</p>
+                            </div>
+
+                            <div>
+                                <i class="ri-mail-send-line"></i>
+                                <p>admin@hardwaremon.my.id</p>
+                            </div>
+
+                            <div>
+                                <i class="ri-phone-line"></i>
+                                <p>+62 858 8130 1274</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
