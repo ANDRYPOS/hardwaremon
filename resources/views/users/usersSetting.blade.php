@@ -6,7 +6,7 @@
         <h1>Users List</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item">Users</li>
                 <li class="breadcrumb-item active">Users List</li>
             </ol>

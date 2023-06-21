@@ -5,7 +5,7 @@
         <h1>Role Group</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                <li class="breadcrumb-item">Home</li>
                 <li class="breadcrumb-item">Users</li>
                 <li class="breadcrumb-item active">Role Group</li>
             </ol>

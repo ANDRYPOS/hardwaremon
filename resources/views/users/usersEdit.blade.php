@@ -3,7 +3,7 @@
 @section('content')
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Dashboard</a></li>
             <li class="breadcrumb-item">Users</li>
             <li class="breadcrumb-item"><a href="{{ url('users-setting') }}">Users list</a></li>
             <li class="breadcrumb-item active">Edit users</li>

@@ -4,8 +4,8 @@
     @include('sweetalert::alert')
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Home</a></li>
-            <li class="#"><a href="dashboard">Users profil setting</a></li>
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active">Users profil setting</li>
         </ol>
     </nav>
     <section class="section profile">
@@ -15,8 +15,8 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                         @if (Auth::user()->avatar == '')
-                            <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}" alt="Profile"
-                                class="rounded m-auto" style="width:100px; height:100px">
+                            <img src="{{ asset('admin/assets/img/avatar/avatar.png') }}" alt="Profile" class="rounded m-auto"
+                                style="width:100px; height:100px">
                         @else
                             <img src="{{ asset('storage/avatars') }}/{{ Auth::user()->avatar }}" alt="Profile"
                                 class="rounded" style="height:10rem; width:10rem">
