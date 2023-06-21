@@ -170,27 +170,29 @@
                                     @csrf
                                     <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                     <div class="row mb-3">
-                                        <div class="input-group mb-3">
-                                            <label for="Password"
-                                                class="col-md-4 col-lg-3 col-form-label rounded">Password</label>
+                                        <label for="Password"
+                                            class="col-md-4 col-lg-3 col-form-label rounded">Password</label>
+                                        <div class="col-md-8 col-lg-9">
                                             <input type="password" name="password" aria-describedby="basic-addon2"
                                                 class="form-control rounded-start">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="input-group mb-3">
-                                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label rounded">New
-                                                Password</label>
-                                            <input type="password" name="newPassword" aria-describedby="basic-addon2"
-                                                id="pw" class="form-control rounded-start">
-                                            <span class="input-group-text" id="basic-addon2">
-                                                <div class="form-check form-switch">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="flexSwitchCheckChecked" onclick="myFunction()"
-                                                        style="cursor: pointer">
-                                                </div>
-                                            </span>
+                                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label rounded">New
+                                            Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <div class="input-group mb-3">
+                                                <input type="password" name="newPassword" aria-describedby="basic-addon2"
+                                                    id="pw" class="form-control rounded-start">
+                                                <span class="input-group-text" id="basic-addon2">
+                                                    <div class="form-check form-switch">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="flexSwitchCheckChecked" onclick="myFunction()"
+                                                            style="cursor: pointer">
+                                                    </div>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 

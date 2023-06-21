@@ -130,7 +130,7 @@
                                                 <td>{{ number_format($dataProducts->price) }}</td>
                                                 @if (Auth::user()->role == 'user')
                                                     {{-- view --}}
-                                                    <td><a href="" class="btn btn-danger" role="button"
+                                                    <td><a href="" class="btn btn-primary" role="button"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#largeModal{{ $dataProducts->id }}"><i
                                                                 class="bi bi-eye-fill"></i></a>
@@ -198,47 +198,23 @@
                                                                                                             Price</div>
                                                                                                         <div
                                                                                                             class="col-lg-9 col-md-8">
-                                                                                                            Rp.{{ $dataProducts->price }}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="row mb-0">
-                                                                                                        <div
-                                                                                                            class="col-lg-3 col-md-4 label">
-                                                                                                            Status</div>
-                                                                                                        <div
-                                                                                                            class="col-lg-9 col-md-8">
-                                                                                                            {{ $dataProducts->status->name }}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="row mb-0">
-                                                                                                        <div
-                                                                                                            class="col-lg-3 col-md-4 label">
-                                                                                                            Authors</div>
-                                                                                                        <div
-                                                                                                            class="col-lg-9 col-md-8">
-                                                                                                            {{ $dataProducts->users->name }}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="row mb-0">
-                                                                                                        <div
-                                                                                                            class="col-lg-3 col-md-4 label">
-                                                                                                            Created</div>
-                                                                                                        <div
-                                                                                                            class="col-lg-9 col-md-8">
-                                                                                                            {{ date('d-M-Y', strtotime($dataProducts->created_at)) }}
+                                                                                                            Rp.
+                                                                                                            {{ number_format($dataProducts->price) }}
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div><!-- End Bordered Tabs -->
                                                                                         </div>
                                                                                     </div>
-
+                                                                                    <a href="https://wa.me/+6282114558212?text=Halo..%20apakah%20product%20tersedia%3F%20%0AProduct%3A%20{{ $dataProducts->name }}%20%0ADescription%3A%0A{{ $dataProducts->description }}%20%0AHarga%3ARp.{{ number_format($dataProducts->price) }}"
+                                                                                        class="btn btn-outline-primary"
+                                                                                        target="_blank">Buy
+                                                                                        now</a>
                                                                                 </div>
                                                                             </div>
                                                                         </section>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        {{-- <a href="" class="btn btn-danger"></a> --}}
                                                                     </div>
                                                                 </div>
                                                             </div>
