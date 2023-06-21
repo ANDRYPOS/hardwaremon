@@ -16,7 +16,7 @@ class LandingController extends Controller
         $products = Products::with('categories')->get();
 
         // get data id categories pada products
-        $categori = Products::select('category_id')->groupby('category_id')->get();
+        $categori = Products::select('category_id')->where('status_id', '2')->groupby('category_id')->get();
 
         // get data carousels pada dtabase
         // $carousels = Carousels::all();
