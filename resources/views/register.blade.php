@@ -16,10 +16,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
-    <div class="vh-100 d-flex justify-content-center align-items-center">
+    <script>
+        AOS.init();
+    </script>
+    <div class="vh-100 d-flex justify-content-center align-items-center" data-aos="fade-left" data-aos-easing="linear"
+        data-aos-duration="1500">
         <div class="col-md-4 p-5 shadow-lg border rounded-5 border-text-muted">
             <h2 class="text-center mb-4 text-secondary">Registrasi Form</h2>
             <form action="/register-store" method="post">
