@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="200">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="true">
                         <div class="carousel-inner" style=" height:400px">
                             @foreach ($carousels as $key => $hero)
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
