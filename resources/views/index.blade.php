@@ -194,14 +194,20 @@
                 <div class="row" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
-                            @if (!$products)
+                            @if ($filterAll == null)
+                                <span class="text-danger">
+                                    Oops! Sorry, we were unable to display any products.
+                                </span>
                             @else
-                                <li data-filter="*" class="filter-active">All</li>
-                                @foreach ($categori as $category)
-                                    <li data-filter=".filter-{{ $category->categories->name }}">
-                                        {{ $category->categories->name }}</li>
-                                @endforeach
+                                <li data-filter="*" class="filter-active">
+                                    All</li>
                             @endif
+
+
+                            @foreach ($categori as $category)
+                                <li data-filter=".filter-{{ $category->categories->name }}">
+                                    {{ $category->categories->name }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

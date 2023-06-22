@@ -18,12 +18,15 @@ class LandingController extends Controller
         // get data id categories pada products
         $categori = Products::select('category_id')->where('status_id', '2')->groupby('category_id')->get();
 
+        //get data untuk kondisi filter all
+        $filterAll = $categori->first();
+
         // get data carousels pada dtabase
         // $carousels = Carousels::all();
         $carousels = Carousels::where('is_active', '2')->get();
         // dd($carousels);
 
         // pashing data keview index(landing)
-        return view('index', compact(['products', 'carousels', 'categori']));
+        return view('index', compact(['products', 'carousels', 'categori', 'filterAll']));
     }
 }
