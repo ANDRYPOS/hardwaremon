@@ -21,15 +21,15 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
-<body>
+<body style="background-color: #ecf3f5">
     <script>
         AOS.init();
     </script>
     @include('sweetalert::alert')
     <div class="vh-100 d-flex justify-content-center align-items-center" data-aos="fade-left" data-aos-easing="linear"
         data-aos-duration="1500">
-        <div class="col-md-4 p-5 shadow-lg border rounded-5 border-text-muted">
-            <h2 class="text-center mb-4 text-secondary">Login Form</h2>
+        <div class="col-md-4 p-5 shadow-lg border rounded-5 border-text-muted bg-body">
+            <h2 class="text-center mb-4" style="color: #1d1777">Form Login</h2>
             <form method="post" action="{{ url('login-proses') }}">
                 @csrf
                 {{-- email --}}
@@ -62,14 +62,14 @@
 
                 {{-- submit --}}
                 <div class="d-grid">
-                    <button class="btn btn-secondary" type="submit">Login</button>
+                    <button class="btn btn-primary" type="submit">Login</button>
                 </div>
                 {{-- end submit --}}
 
                 {{-- option --}}
                 <p class="small" style="display: flex; justify-content: space-between">
-                    <a class="text-primary" href="{{ url('/') }}">Back</a>
-                    <a class="text-primary" href="{{ url('register') }}">Create an
+                    <a class="text-primary text-decoration-none" href="{{ url('/') }}">Back</a>
+                    <a class="text-primary text-decoration-none" href="{{ url('register') }}">Create an
                         account?</a>
                 </p>
                 {{-- end option --}}

@@ -20,14 +20,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
-<body>
+<body style="background-color: #ecf3f5">
     <script>
         AOS.init();
     </script>
     <div class="vh-100 d-flex justify-content-center align-items-center" data-aos="fade-left" data-aos-easing="linear"
         data-aos-duration="1500">
-        <div class="col-md-4 p-5 shadow-lg border rounded-5 border-text-muted">
-            <h2 class="text-center mb-4 text-secondary">Registrasi Form</h2>
+        <div class="col-md-4 p-5 shadow-lg border rounded-5 border-text-muted bg-body">
+            <h2 class="text-center mb-4" style="color: #1d1777">Form Registrasi</h2>
             <form action="/register-store" method="post">
                 @csrf
 
@@ -77,9 +77,10 @@
                 {{-- end phone --}}
 
                 <div class="d-grid">
-                    <input type="submit" value="submit" class="btn btn-secondary">
+                    <input type="submit" value="submit" class="btn btn-primary">
                 </div>
-                <p class="small"><a class="text-primary" href="{{ url('login') }}">Have an account?</a></p>
+                <p class="small"><a class="text-primary text-decoration-none" href="{{ url('login') }}">Have an
+                        account?</a></p>
             </form>
         </div>
     </div>
