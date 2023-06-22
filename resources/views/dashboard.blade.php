@@ -16,6 +16,7 @@
         <section class="section dashboard">
             <div class="row">
                 @if (Auth::user()->role == 'admin')
+                    {{-- banner card --}}
                     <div class="col-xxl-4 col-md-6">
                         <div class="card info-card sales-card">
                             <div class="card-body">
@@ -127,7 +128,7 @@
                                                 <td>{{ $dataProducts->name }}</td>
                                                 <td>{{ $dataProducts->categories->name }}</td>
                                                 <td>{{ $dataProducts->description }}</td>
-                                                <td>{{ number_format($dataProducts->price) }}</td>
+                                                <td>Rp. {{ number_format($dataProducts->price) }}</td>
                                                 @if (Auth::user()->role == 'user')
                                                     {{-- view --}}
                                                     <td><a href="" class="btn btn-primary" role="button"
