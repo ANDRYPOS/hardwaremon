@@ -136,6 +136,38 @@
             </div>
         </section><!-- ======= End About Us Section ======= -->
 
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients clients">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/100px-HP_logo_2012.svg.png"
+                            class="img-fluid" alt="" data-aos="zoom-in">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/custom-asus-logo-images-png-5.png"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/republic-of-gamers-asus-logo-png-21.png"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuSbCRGr9GwwD9eXsf1ahD9rT1M6pyqequRIoV8GJdVFrWP10&s"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa4XQnW564HkBxFUBSYV2XMtt64f8CKtYjZLTq9QWBgELfnuT1&s"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3U3siCaYqMc-n4wQbwDAXZtVySUHS19i-YMEeK7NAfrBav5k&s"
+                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Clients Section -->
+
         <!-- ======= Services Section ======= -->
         <section id="services" class="services">
             <div class="container">
@@ -297,38 +329,6 @@
 
             </div>
         </section><!-- End Team Section -->
-
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients clients">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/100px-HP_logo_2012.svg.png"
-                            class="img-fluid" alt="" data-aos="zoom-in">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/custom-asus-logo-images-png-5.png"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://www.freepnglogos.com/uploads/logo-asus-png/republic-of-gamers-asus-logo-png-21.png"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuSbCRGr9GwwD9eXsf1ahD9rT1M6pyqequRIoV8GJdVFrWP10&s"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa4XQnW564HkBxFUBSYV2XMtt64f8CKtYjZLTq9QWBgELfnuT1&s"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3U3siCaYqMc-n4wQbwDAXZtVySUHS19i-YMEeK7NAfrBav5k&s"
-                            class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Clients Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
