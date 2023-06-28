@@ -23,8 +23,8 @@
                             <!-- Table products -->
                             <div class="search-bar">
                                 <!-- button Add -->
-                                <a href="{{ url('products-create') }}" class="btn btn-primary my-2" role="button"><i
-                                        class="bx bxs-book-add"></i></a>
+                                <a href="{{ url('products-create') }}" class="my-1 btn btn-outline-primary"
+                                    style="font-size: 16px" role="button"><i class="bi bi-file-earmark-plus"></i></a>
                             </div>
                             {{-- result --}}
                             <table class="table table-striped table-hover table-bordered border-text-muted text-center"
