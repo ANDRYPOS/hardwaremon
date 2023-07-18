@@ -12,41 +12,24 @@ class DashboardController extends Controller
     //tampil dashboard
     public function index()
     {
-        //
-        $products = Products::all();
-        $productCount = $products->count();
+        //card info products for admin
+        $productCount = Products::all()->count();
         $productsActive = Products::where('status_id', 2)->get()->count();
 
+        //list card product for user
+        $products = Products::where('status_id', 2)->get();
+
+        //card info banner for admin
         $carousels = Carousels::all();
         $carouselsCount = $carousels->count();
         $carouselsActive = Carousels::where('is_active', 2)->get()->count();
 
-        return view('dashboard', compact(['products', 'productCount', 'carousels', 'carouselsCount', 'carouselsActive', 'productsActive']));
-    }
+        // get data id categories pada products
+        $categori = Products::select('category_id')->where('status_id', '2')->groupby('category_id')->get();
 
-    // accepted product in dashboard
-    public function productsAcepted(Request $request)
-    {
-        $products = Products::where('id', $request->id)->first();
-        // dd($products);
+        //get data untuk kondisi filter all
+        $filterAll = $categori->first();
 
-        $products->update([
-            'status_id' => 2,
-            'verified_by' => Auth::user()->id
-        ]);
-        return redirect('/dashboard')->with('toast_success', 'Product accepted succesfully');
-    }
-
-    // decline product in dashboard
-    public function productsDecline(Request $request)
-    {
-        $products = Products::where('id', $request->id)->first();
-        // dd($products);
-
-        $products->update([
-            'status_id' => 3,
-            'verified_by' => Auth::user()->id
-        ]);
-        return redirect('/dashboard')->with('toast_success', 'Product succesfully rejected');
+        return view('dashboard', compact(['products', 'productCount', 'carousels', 'carouselsCount', 'carouselsActive', 'productsActive', 'categori', 'filterAll']));
     }
 }

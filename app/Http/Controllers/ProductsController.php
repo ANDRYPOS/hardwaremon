@@ -24,10 +24,110 @@ class ProductsController extends Controller
 
         // get data products
         $products = Products::all();
+
+        //count
+        $waiting = Products::where('status_id', 1)->get();
+        $rejected = Products::where('status_id', 3)->get();
+        $acepted = Products::where('status_id', 2)->get();
         /* dd($products); */
-        return view('products.productsSetting', compact(['products', 'categories', 'users']));
+        return view('products.productsSetting', compact(['products', 'categories', 'users', 'waiting', 'rejected', 'acepted']));
     }
 
+    /**
+     * tampil list acepted
+     */
+    public function acepted()
+    {
+        //panggil tb users untuk insert data products dropdown creatd by verified_by
+        $users = User::all();
+
+        //panggil tb categories untuk insert data products dropdown category_id
+        $categories = Categories::all();
+
+        // get data products
+        $products = Products::where('status_id', 2)->get();
+
+        //count
+        $waiting = Products::where('status_id', 1)->get();
+        $rejected = Products::where('status_id', 3)->get();
+        $acepted = Products::where('status_id', 2)->get();
+        /* dd($products); */
+        return view('products.productsSetting', compact(['products', 'categories', 'users', 'waiting', 'rejected', 'acepted']));
+    }
+
+    /**
+     * tampil list waiting
+     */
+    public function waiting()
+    {
+        //panggil tb users untuk insert data products dropdown creatd by verified_by
+        $users = User::all();
+
+        //panggil tb categories untuk insert data products dropdown category_id
+        $categories = Categories::all();
+
+        // get data products
+        $products = Products::where('status_id', 1)->get();
+
+        //count
+        $waiting = Products::where('status_id', 1)->get();
+        $rejected = Products::where('status_id', 3)->get();
+        $acepted = Products::where('status_id', 2)->get();
+        /* dd($products); */
+        return view('products.productsSetting', compact(['products', 'categories', 'users', 'waiting', 'rejected', 'acepted']));
+    }
+
+    /**
+     * tampil list rejected
+     */
+    public function rejected()
+    {
+        //panggil tb users untuk insert data products dropdown creatd by verified_by
+        $users = User::all();
+
+        //panggil tb categories untuk insert data products dropdown category_id
+        $categories = Categories::all();
+
+        // get data products
+        $products = Products::where('status_id', 3)->get();
+
+        //count
+        $waiting = Products::where('status_id', 1)->get();
+        $rejected = Products::where('status_id', 3)->get();
+        $acepted = Products::where('status_id', 2)->get();
+        /* dd($products); */
+        return view('products.productsSetting', compact(['products', 'categories', 'users', 'waiting', 'rejected', 'acepted']));
+    }
+
+    /**
+     * action jempol accepted
+     */
+    public function productsAcepted(Request $request)
+    {
+        $products = Products::where('id', $request->id)->first();
+        // dd($products);
+
+        $products->update([
+            'status_id' => 2,
+            'verified_by' => Auth::user()->id
+        ]);
+        return redirect('/products-setting')->with('toast_success', 'Product accepted succesfully');
+    }
+
+    /**
+     * action jempol rejected
+     */
+    public function productsDecline(Request $request)
+    {
+        $products = Products::where('id', $request->id)->first();
+        // dd($products);
+
+        $products->update([
+            'status_id' => 3,
+            'verified_by' => Auth::user()->id
+        ]);
+        return redirect('/products-setting')->with('toast_success', 'Product succesfully rejected');
+    }
     /**
      * tampil halaman create.
      */

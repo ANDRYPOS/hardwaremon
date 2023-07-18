@@ -1,351 +1,394 @@
 @extends('layout.admin')
 
 @section('content')
-    <main id="main" class="main">
-        @include('sweetalert::alert')
-        <div class="pagetitle">
-            <h1>Dashboard</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
-        </div>
-
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Dashboard</li>
+            </ol>
+        </nav>
+    </div>
+    {{-- menu list for admin --}}
+    @if (Auth::user()->role == 'admin')
         <section class="section dashboard">
             <div class="row">
-                @if (Auth::user()->role == 'admin')
-                    {{-- banner card --}}
-                    <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card sales-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Banner <span>| Today</span></h5>
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-card-image"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6>Count: {{ $carouselsCount }} &emsp; Accepted: {{ $carouselsActive }}</h6>
-                                        <h6></h6>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <!-- Sales Card -->
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Inventory <span>| Today</span></h5>
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>145</h6>
+                                            <span class="text-success small pt-1 fw-bold">12%</span> <span
+                                                class="text-muted small pt-2 ps-1">increase</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div><!-- End Sales Card -->
 
+                        <!-- Revenue Card -->
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card revenue-card">
+
+                                <div class="filter">
+                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                            class="bi bi-three-dots"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                        <li class="dropdown-header text-start">
+                                            <h6>Filter</h6>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-currency-dollar"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>$3,264</h6>
+                                            <span class="text-success small pt-1 fw-bold">8%</span> <span
+                                                class="text-muted small pt-2 ps-1">increase</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- End Revenue Card -->
+
+                        <!-- Customers Card -->
+                        <div class="col-xxl-4 col-xl-12">
+
+                            <div class="card info-card customers-card">
+
+                                <div class="filter">
+                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                            class="bi bi-three-dots"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                        <li class="dropdown-header text-start">
+                                            <h6>Filter</h6>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Customers <span>| This Year</span></h5>
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>1244</h6>
+                                            <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                                                class="text-muted small pt-2 ps-1">decrease</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End Customers Card -->
+
+                        <!-- Budget Report -->
+                        <div class="col-xxl-4 col-xl-6">
+                            <div class="card">
+                                <div class="filter">
+                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                            class="bi bi-three-dots"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                        <li class="dropdown-header text-start">
+                                            <h6>Filter</h6>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-body pb-0">
+                                    <h5 class="card-title">
+                                        Budget Report <span>| This Month</span>
+                                    </h5>
+
+                                    <div id="budgetChart" style="min-height: 400px" class="echart"></div>
+
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            var budgetChart = echarts
+                                                .init(document.querySelector("#budgetChart"))
+                                                .setOption({
+                                                    legend: {
+                                                        data: ["Allocated Budget", "Actual Spending"],
+                                                    },
+                                                    radar: {
+                                                        // shape: 'circle',
+                                                        indicator: [{
+                                                                name: "Sales",
+                                                                max: 6500,
+                                                            },
+                                                            {
+                                                                name: "Administration",
+                                                                max: 16000,
+                                                            },
+                                                            {
+                                                                name: "Information Technology",
+                                                                max: 30000,
+                                                            },
+                                                            {
+                                                                name: "Customer Support",
+                                                                max: 38000,
+                                                            },
+                                                            {
+                                                                name: "Development",
+                                                                max: 52000,
+                                                            },
+                                                            {
+                                                                name: "Marketing",
+                                                                max: 25000,
+                                                            },
+                                                        ],
+                                                    },
+                                                    series: [{
+                                                        name: "Budget vs spending",
+                                                        type: "radar",
+                                                        data: [{
+                                                                value: [4200, 3000, 20000, 35000, 50000, 18000],
+                                                                name: "Allocated Budget",
+                                                            },
+                                                            {
+                                                                value: [
+                                                                    5000, 14000, 28000, 26000, 42000, 21000,
+                                                                ],
+                                                                name: "Actual Spending",
+                                                            },
+                                                        ],
+                                                    }, ],
+                                                });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- End Banner Card -->
+                        <!-- End Budget Report -->
 
-                    {{-- products card --}}
-                    <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card sales-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Products <span>| Today</span></h5>
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-journal-richtext"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6>Count: {{ $productCount }} &emsp; Accepted: {{ $productsActive }}</h6>
-                                        <h6></h6>
-                                    </div>
+                        <!-- Website Traffic -->
+                        <div class="col-xxl-4 col-xl-6">
+                            <div class="card">
+                                <div class="filter">
+                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                            class="bi bi-three-dots"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                        <li class="dropdown-header text-start">
+                                            <h6>Filter</h6>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-body pb-0">
+                                    <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+
+                                    <div id="trafficChart" style="min-height: 400px" class="echart"></div>
+
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            echarts
+                                                .init(document.querySelector("#trafficChart"))
+                                                .setOption({
+                                                    tooltip: {
+                                                        trigger: "item",
+                                                    },
+                                                    legend: {
+                                                        top: "5%",
+                                                        left: "center",
+                                                    },
+                                                    series: [{
+                                                        name: "Access From",
+                                                        type: "pie",
+                                                        radius: ["40%", "70%"],
+                                                        avoidLabelOverlap: false,
+                                                        label: {
+                                                            show: false,
+                                                            position: "center",
+                                                        },
+                                                        emphasis: {
+                                                            label: {
+                                                                show: true,
+                                                                fontSize: "18",
+                                                                fontWeight: "bold",
+                                                            },
+                                                        },
+                                                        labelLine: {
+                                                            show: false,
+                                                        },
+                                                        data: [{
+                                                                value: 1048,
+                                                                name: "Search Engine",
+                                                            },
+                                                            {
+                                                                value: 735,
+                                                                name: "Direct",
+                                                            },
+                                                            {
+                                                                value: 580,
+                                                                name: "Email",
+                                                            },
+                                                            {
+                                                                value: 484,
+                                                                name: "Union Ads",
+                                                            },
+                                                            {
+                                                                value: 300,
+                                                                name: "Video Ads",
+                                                            },
+                                                        ],
+                                                    }, ],
+                                                });
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
-                    </div><!-- End Products Card -->
-                @endif
+                        <!-- End Website Traffic -->
 
-                @if (Auth::user()->role == 'staff' || Auth::user()->role == 'admin')
-                    <!-- banner columns -->
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <!-- carousels tittle count -->
-                            <div class="container horizontal-scrollable">
-                                <div class="row flex-nowrap d-flex flex-sm-column flex-md-row"
-                                    style="overflow-x: auto;
-                            white-space: nowrap">
-                                    @foreach ($carousels as $key => $banner)
-                                        @if ($banner->is_active == 2)
-                                            <div class="col-md-4 col-sm-12">
-                                                <div class="card">
-                                                    <img src="{{ asset('storage/banner/') }}/{{ $banner->banner }}"
-                                                        class="card-img-top" alt="hero" style="height: 200px">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">{{ $banner->name }}</h5>
-                                                        <p class="card-text text-primary">
-                                                            {{ $banner->status->name }}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    @endforeach
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    {{-- end menu list for admin --}}
+
+    {{-- products column for role user --}}
+    @if (Auth::user()->role == 'user')
+        <div class="row">
+            <div class="row mb-2">
+                <div class="col-8">
+                    {{-- price filter --}}
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary">Price Range</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    {{-- end price filter --}}
+
+                    {{-- kategori filter --}}
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary">Categori</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    {{-- end kategori filter --}}
+                </div>
+            </div>
+            @foreach ($products as $barang)
+                <div class="col-4" id="myDIV">
+                    <div class="card">
+                        <div class="card-body d-flex flex-row">
+                            <div>
+                                <h5 class="card-title font-weight-bold">{{ $barang->categories->name }} -
+                                    {{ $barang->name }}</h5>
                             </div>
                         </div>
-                    </div><!-- End banner columns -->
-                @endif
 
-                <div class="my-3"></div>
+                        <img class="img-fluid hover-effect"
+                            src="{{ asset('storage/products_img/') }}/{{ $barang->image }}" alt="{{ $barang->name }}" />
 
-                {{-- products column --}}
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <!-- Table products -->
-                            <div class="search-bar my-2">
-                                <!-- button Add -->
-                                <div class="card-tittle text-center">
-                                    Products List
+                        <div class="card-body">
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne{{ $barang->id }}">
+                                        <button class="accordion-button collapsed hover-effect" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne{{ $barang->id }}" aria-expanded="false"
+                                            aria-controls="flush-collapseOne{{ $barang->id }}">
+                                            Description
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne{{ $barang->id }}" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne{{ $barang->id }}"
+                                        data-bs-parent="#accordionFlushExample" style="">
+                                        <div class="accordion-body">{{ $barang->description }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo{{ $barang->id }}">
+                                        <button class="accordion-button collapsed hover-effect" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwo{{ $barang->id }}" aria-expanded="false"
+                                            aria-controls="flush-collapseTwo{{ $barang->id }}">
+                                            Pricing
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo{{ $barang->id }}" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingTwo{{ $barang->id }}"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body"></div>
+                                    </div>
                                 </div>
                             </div>
-                            {{-- result --}}
-                            <table class="table table-striped table-hover table-bordered border-text-muted text-center"
-                                style="font-size: small">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Products</th>
-                                        <th scope="col">Categories</th>
-                                        <th scope="col" class="w-25">Description</th>
-                                        <th scope="col">Prices</th>
-                                        <th scope="col">Status</th>
-                                        @if (Auth::user()->role == 'admin')
-                                            <th scope="col">Action</th>
-                                        @endif
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($products as $dataProducts)
-                                        <tr>
-                                            @if ($dataProducts->status_id == 2 || Auth::user()->role == 'admin' || Auth::user()->role == 'staff')
-                                                <th scope="row">{{ $loop->iteration }}.</th>
-                                                <td>
-                                                    <img src="{{ asset('storage/products_img/') }}/{{ $dataProducts->image }}"
-                                                        alt="{{ $dataProducts->name }}" title="{{ $dataProducts->name }}"
-                                                        width="80" height="80" class="rounded">
-                                                </td>
-                                                <td>{{ $dataProducts->name }}</td>
-                                                <td>{{ $dataProducts->categories->name }}</td>
-                                                <td>{{ $dataProducts->description }}</td>
-                                                <td>Rp. {{ number_format($dataProducts->price) }}</td>
-                                                @if (Auth::user()->role == 'user')
-                                                    {{-- view --}}
-                                                    <td><a href="" class="btn btn-primary" role="button"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#largeModal{{ $dataProducts->id }}"><i
-                                                                class="bi bi-eye-fill"></i></a>
-
-                                                        <div class="modal fade" id="largeModal{{ $dataProducts->id }}"
-                                                            tabindex="-1" data-bs-backdrop="false">
-                                                            <div class="modal-dialog modal-lg">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title">Data Product</h5>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"
-                                                                            aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <section class="section profile">
-                                                                            <div class="row">
-                                                                                <div class="col-xl-4">
-                                                                                    <div
-                                                                                        class="card h-100 d-flex flex-column align-items-center">
-                                                                                        <img src="{{ asset('storage/products_img') }}/{{ $dataProducts->image }}"
-                                                                                            alt="Profile"
-                                                                                            class="rounded h-100 w-100">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-xl-8">
-                                                                                    <div class="card">
-                                                                                        <div
-                                                                                            class="card-body pt-3 text-start">
-                                                                                            <!-- Bordered Tabs -->
-                                                                                            <ul
-                                                                                                class="nav nav-tabs nav-tabs-bordered">
-                                                                                                <li class="nav-item">
-                                                                                                    <span
-                                                                                                        style="text-decoration: none">
-                                                                                                        Products
-                                                                                                        Preview</span>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                            <div class="tab-content pt-2">
-                                                                                                <div class="tab-pane fade show active profile-overview"
-                                                                                                    id="profile-overview">
-                                                                                                    <div class="row mb-0">
-                                                                                                        <div
-                                                                                                            class="col-lg-3 col-md-4 label">
-                                                                                                            Name</div>
-                                                                                                        <div
-                                                                                                            class="col-lg-9 col-md-8">
-                                                                                                            {{ $dataProducts->name }}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="row mb-0">
-                                                                                                        <div
-                                                                                                            class="col-lg-3 col-md-4 label">
-                                                                                                            Description
-                                                                                                        </div>
-                                                                                                        <div
-                                                                                                            class="col-lg-9 col-md-8">
-                                                                                                            {{ $dataProducts->description }}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="row mb-0">
-                                                                                                        <div
-                                                                                                            class="col-lg-3 col-md-4 label">
-                                                                                                            Price</div>
-                                                                                                        <div
-                                                                                                            class="col-lg-9 col-md-8">
-                                                                                                            Rp.
-                                                                                                            {{ number_format($dataProducts->price) }}
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div><!-- End Bordered Tabs -->
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <a href="https://wa.me/+6282114558212?text=Halo..%20apakah%20product%20tersedia%3F%20%0AProduct%3A%20{{ $dataProducts->name }}%20%0ADescription%3A%0A{{ $dataProducts->description }}%20%0AHarga%3ARp.{{ number_format($dataProducts->price) }}"
-                                                                                        class="btn btn-outline-primary"
-                                                                                        target="_blank">Buy
-                                                                                        now</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </section>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    {{-- view --}}
-                                                @else
-                                                    <td
-                                                        @if ($dataProducts->status_id == 1) class="text-warning"
-                                                    @elseif ($dataProducts->status_id == 2)
-                                                    class="text-primary"
-                                                    @else
-                                                    class="text-danger" @endif>
-                                                        {{ $dataProducts->status->name }}</td>
-                                                @endif
-                                                @if (Auth::user()->role == 'admin')
-                                                    <td>
-                                                        <!-- accepted -->
-                                                        <div class="text-center fs-4">
-                                                            {{-- accepted --}}
-                                                            <a href="" role="button" type="submit"
-                                                                class="btn btn-outline-primary mb-2"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#aceptedproducts{{ $dataProducts->id }}"><i
-                                                                    class="bi bi-hand-thumbs-up-fill mx-4"></i></a>
-                                                            <!-- acepted form-->
-                                                            <div class="modal fade"
-                                                                id="aceptedproducts{{ $dataProducts->id }}"
-                                                                tabindex="-1" data-bs-backdrop="false">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title">
-                                                                                {{ $dataProducts->status_id == 2 ? 'The product has been accepted' : 'Accept the product?' }}
-                                                                            </h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form method="post"
-                                                                                action="{{ url('products-acepted') }}">
-                                                                                @csrf
-                                                                                @method('put')
-                                                                                <div class="modal-body"
-                                                                                    id="modal-categories">
-                                                                                    <input type="hidden" name="id"
-                                                                                        value="{{ $dataProducts->id }}"
-                                                                                        placeholder="nama kategori"
-                                                                                        class="form-control" required>
-                                                                                    <input
-                                                                                        type="{{ $dataProducts->status_id == 2 ? 'hidden' : 'text' }}"
-                                                                                        name="name"
-                                                                                        value="{{ $dataProducts->name }}"
-                                                                                        placeholder="nama kategori"
-                                                                                        class="form-control" disabled>
-                                                                                    <br>
-                                                                                </div>
-                                                                                <input
-                                                                                    type="{{ $dataProducts->status_id == 2 ? 'hidden' : 'submit' }}"
-                                                                                    class="btn btn-Primary">
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div> {{-- form accept --}}
-                                                            {{-- accepted --}}
-
-                                                            {{-- decline --}}
-                                                            <a href="" role="button" type="submit"
-                                                                class="btn btn-outline-danger mb-2" data-bs-toggle="modal"
-                                                                data-bs-target="#decline{{ $dataProducts->id }}"><i
-                                                                    class="bi bi-hand-thumbs-down-fill mx-4"></i></a>
-                                                            <!-- decline form-->
-                                                            <div class="modal fade" id="decline{{ $dataProducts->id }}"
-                                                                tabindex="-1" data-bs-backdrop="false">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title">
-                                                                                {{ $dataProducts->status_id == 2 ? 'Reject product?' : 'Product has been rejected' }}
-                                                                            </h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form method="post"
-                                                                                action="{{ url('products-decline') }}">
-                                                                                @csrf
-                                                                                @method('put')
-                                                                                <!-- form products -->
-                                                                                <div class="modal-body"
-                                                                                    id="modal-categories">
-                                                                                    <input type="hidden" name="id"
-                                                                                        value="{{ $dataProducts->id }}"
-                                                                                        placeholder="nama kategori"
-                                                                                        class="form-control" required>
-                                                                                    <input type="text" name="name"
-                                                                                        value="{{ $dataProducts->name }}"
-                                                                                        placeholder="nama kategori"
-                                                                                        class="form-control">
-                                                                                    <br>
-                                                                                </div>
-                                                                                <input
-                                                                                    type="{{ $dataProducts->status_id == 2 ? 'submit' : 'hidden' }}"
-                                                                                    class="btn btn-Primary">
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div> {{-- form decline --}}
-                                                            {{-- decline --}}
-                                                        </div>
-                                                    </td>
-                                                @endif
-                                            @endif
-                                        </tr>
-                                    @empty
-                                        <td colspan="13">Data Empty</td>
-                                    @endforelse
-                                </tbody>
-
-                            </table>
-                            <!-- End Table result -->
+                            <hr class="dropdown-divider">
+                            <div class="d-flex justify-content-center">
+                                <a class="p-md-1 my-1 text-decoration-none float-end" data-mdb-toggle="collapse"
+                                    href="#collapseContent" role="button" aria-expanded="false"
+                                    aria-controls="collapseContent">
+                                    <div class="bi bi-bag cursor-pointer hover-effect"
+                                        style="text-decoration-style: none"> Buy Now
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {{-- End products columns --}}
-            </div>
-        </section>
-    </main><!-- End #main -->
-    @section('content')
+            @endforeach
+        </div>
+    @endif
+    {{-- End products column for role user --}}
+
+@endsection

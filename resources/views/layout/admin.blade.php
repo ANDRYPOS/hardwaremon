@@ -21,10 +21,10 @@
     <link href="{{ asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('admin/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('admin/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('admin/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('admin/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('admin/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet">
@@ -44,6 +44,13 @@
         })
     </script>
     <style type="text/css">
+        .hover-effect:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         .preloader {
             position: fixed;
             top: 0;
@@ -146,7 +153,8 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="{{ url('dashboard') }}">
+                <a class="nav-link {{ request()->routeIs('dashboard') ? '' : 'collapsed' }}"
+                    href="{{ url('dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -155,46 +163,65 @@
                 <li class="nav-heading">Pages</li>
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-person-square"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <a class="nav-link collapsed " data-bs-target="#data-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-file-richtext"></i><span>Data</span><i class="bi bi-chevron-down ms-auto"></i>
                     </a>
-                    <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="{{ url('users-setting') }}">
-                                <i class="bi bi-circle"></i><span>Users List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('users-group') }}">
-                                <i class="bi bi-circle"></i><span>Role Group</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li><!-- End Categories Nav -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" data-bs-target="#setting-nav" data-bs-toggle="collapse"
-                        href="#">
-                        <i class="ri-list-settings-fill"></i><span>System Setup</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="setting-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="{{ url('categories-setting') }}">
-                                <i class="bi bi-circle"></i><span>Categories</span>
-                            </a>
-                        </li>
-                        <li>
+                    <ul id="data-nav"
+                        class="nav-content 
+                        {{ request()->routeIs(['products-setting', 'categories-setting', 'carousels']) ? '' : 'collapse' }}
+                        "
+                        data-bs-parent="#sidebar-nav">
+                        <li class="{{ request()->routeIs('products-setting') ? 'nav-link' : 'collapsed' }} ">
                             <a href="{{ url('products-setting') }}">
                                 <i class="bi bi-circle"></i><span>Products</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="{{ request()->routeIs('categories-setting') ? 'nav-link' : 'collapsed' }} ">
+                            <a href="{{ url('categories-setting') }}">
+                                <i class="bi bi-circle"></i><span>Categories</span>
+                            </a>
+                        </li>
+                        <li class="{{ request()->routeIs('carousels') ? 'nav-link' : 'collapsed' }} ">
                             <a href="{{ url('carousels') }}">
                                 <i class="bi bi-circle"></i><span>Carousels</span>
                             </a>
                         </li>
                     </ul>
+                </li><!-- End Categories Nav -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#system-nav" data-bs-toggle="collapse"
+                        href="#">
+                        <i class="bi bi-database-gear"></i><span>System</span><i
+                            class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="system-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="{{ url('users-setting') }}">
+                                <i class="bi bi-circle"></i><span>Master Status</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('users-setting') }}">
+                                <i class="bi bi-circle"></i><span>User List</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('users-group') }}">
+                                <i class="bi bi-circle"></i><span>Role</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li><!-- End Setting Nav -->
+
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('carousels') ? '' : 'collapsed' }}"
+                        href="{{ url('carousels') }}">
+                        <i class="bi bi-gear-wide-connected"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>
             @endif
         </ul>
     </aside><!-- End Sidebar-->
@@ -213,17 +240,17 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    {{-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script> --}}
-    {{-- <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> --}}
-    {{-- <script src="{{ asset('admin/forms/datatables-demo.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script> --}}
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('admin/forms/datatables-demo.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    {{-- <script src="{{ asset('admin/assets/vendor/chart.js/chart.umd.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/assets/vendor/echarts/echarts.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/assets/vendor/quill/quill.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/assets/vendor/simple-datatables/simple-datatables.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/assets/vendor/tinymce/tinymce.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/assets/vendor/php-email-form/validate.js') }}"></script> --}}
+    <script src="{{ asset('admin/assets/vendor/chart.js/chart.umd.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendor/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendor/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendor/php-email-form/validate.js') }}"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
