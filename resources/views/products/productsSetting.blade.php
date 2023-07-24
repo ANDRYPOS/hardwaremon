@@ -76,6 +76,7 @@
                                                             @else
                                                             class="text-warning" @endif>
                                                     {{ $dataProducts->status->name }}</h5>
+
                                                 <div class="action mt-2 d-flex gap-2">
                                                     {{-- action disini --}}
                                                     {{-- Accepted --}}
@@ -175,57 +176,57 @@
                                     </div>
 
                                     <div class="col-xl-8">
-                                        <div class="card border" style="height: 24rem">
+                                        <div class="card border">
                                             <div class="card-body pt-3">
                                                 <!-- Bordered Tabs -->
                                                 <ul class="nav nav-tabs nav-tabs-bordered">
 
                                                     <li class="nav-item">
-                                                        <button class="nav-link active" data-bs-toggle="tab"
-                                                            data-bs-target="#profile-overview">Products
+                                                        <button class="nav-link active float-start" data-bs-toggle="tab"
+                                                            data-bs-target="#profile-overview">Product
                                                             Details</button>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content pt-2">
-                                                    <div class="tab-pane fade show active profile-overview"
-                                                        id="profile-overview">
+                                                    <div class="tab-pane fade show active products-details mt-2">
                                                         <p class="small fst-italic">{{ $dataProducts->description }}
                                                         </p>
 
-                                                        <div class="row">
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label ">Products Name</div>
-                                                            <div class="col-lg-9 col-md-8">{{ $dataProducts->name }}
+                                                            <div class="col-lg-9 col-md-8 text-primary">
+                                                                {{ $dataProducts->name }}
                                                             </div>
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label">Categori</div>
-                                                            <div class="col-lg-9 col-md-8">
+                                                            <div class="col-lg-9 col-md-8 text-primary">
                                                                 {{ $dataProducts->categories->name }}
                                                             </div>
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label">Price</div>
-                                                            <div class="col-lg-9 col-md-8">Rp.
+                                                            <div class="col-lg-9 col-md-8 text-primary">Rp.
                                                                 {{ number_format($dataProducts->price) }},-
                                                             </div>
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label">Published</div>
-                                                            <div class="col-lg-9 col-md-8">
+                                                            <div class="col-lg-9 col-md-8 text-primary">
                                                                 {{ date_format($dataProducts->created_at, 'd M Y') }}
                                                             </div>
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label">Publisher</div>
-                                                            <div class="col-lg-9 col-md-8">
+                                                            <div class="col-lg-9 col-md-8 text-primary">
                                                                 {{ $dataProducts->users->name }}</div>
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label">Action</div>
                                                             <div class="col-lg-9 col-md-8">
                                                                 {{-- edit modal --}}

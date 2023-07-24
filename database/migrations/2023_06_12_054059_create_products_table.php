@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories');
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->integer('price');
             $table->foreignId('status_id')->default(1)->constrained('status')->change();
             $table->string('image');

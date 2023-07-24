@@ -20,10 +20,55 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <!-- Table Categories -->
-                            <div class="search-bar">
-                                <!-- Add -->
-                                <a href="{{ url('categories-create') }}" class="btn btn-primary my-2" role="button"><i
-                                        class="bx bxs-book-add"></i></a>
+                            <div class="search-bar my-3">
+                                <div class="text-center">
+                                    <div class="accordion accordion-flush border-bottom mb-2" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingOne">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                    aria-expanded="true" aria-controls="flush-collapseOne">
+                                                    <p class="text-primary float-start"><i class="bi bi-plus-lg"></i> Insert
+                                                        Data</p>
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseOne"
+                                                class="accordion-collapse {{ isset($errors->messages()['name']) ? '' : 'collapse' }}"
+                                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <form method="post" action="{{ url('categories-create') }}">
+                                                        @csrf
+                                                        <!-- form products -->
+
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <label for="name" class="mb-2 float-start">Categories
+                                                                    name:
+                                                                    @error('name')
+                                                                        <small class="text-danger">{{ $message }}</small>
+                                                                    @enderror
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-9 ms-1">
+                                                                <input type="text" name="name"
+                                                                    placeholder="Input here..."
+                                                                    class="form-control {{ isset($errors->messages()['name']) ? 'is-invalid' : '' }}">
+                                                            </div>
+                                                            <div class="col-2 ps-0">
+                                                                <input type="submit" value="submit" id="submit"
+                                                                    class="btn btn-primary float-start">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <Strong class="text-primary">Categories List</Strong>
+                                    <strong class="border border-1 rounded-1 float-end"
+                                        style="width: 40px">{{ $categories->count() }}</strong>
+                                </div>
                             </div>
                             <table class="table table-striped table-hover table-bordered border-text-muted"
                                 style="text-align: center; font-size: small">

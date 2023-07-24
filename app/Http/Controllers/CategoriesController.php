@@ -19,16 +19,6 @@ class CategoriesController extends Controller
         return view('categories.categoriesSetting', compact('categories'));
     }
 
-    // tampil form create
-    public function create()
-    {
-        // get data categories dari database
-        $categories = Categories::all();
-
-        // tampilkan halaman create
-        return view('categories.categoriesCreate', compact('categories'));
-    }
-
     // proses simpan
     public function store(Request $request)
     {

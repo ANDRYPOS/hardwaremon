@@ -18,6 +18,8 @@ class DashboardController extends Controller
 
         //list card product for user
         $products = Products::where('status_id', 2)->get();
+        $productspending = Products::where('status_id', 1)->get()->count();
+        $productsreject = Products::where('status_id', 3)->get()->count();
 
         //card info banner for admin
         $carousels = Carousels::all();
@@ -30,6 +32,6 @@ class DashboardController extends Controller
         //get data untuk kondisi filter all
         $filterAll = $categori->first();
 
-        return view('dashboard', compact(['products', 'productCount', 'carousels', 'carouselsCount', 'carouselsActive', 'productsActive', 'categori', 'filterAll']));
+        return view('dashboard', compact(['productsreject', 'productspending', 'products', 'productCount', 'carousels', 'carouselsCount', 'carouselsActive', 'productsActive', 'categori', 'filterAll']));
     }
 }

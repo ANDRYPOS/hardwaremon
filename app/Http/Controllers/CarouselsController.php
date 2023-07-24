@@ -13,8 +13,11 @@ class CarouselsController extends Controller
     public function setting()
     {
         $carousels = Carousels::all();
-        $carouselsCount = $carousels->count();
-        return view('carousels.carouselsSetting', compact(['carousels', 'carouselsCount']));
+        $waiting = Carousels::where('is_active', 1)->get();
+        $acepted = Carousels::where('is_active', 2)->get();
+        $rejected = Carousels::where('is_active', 3)->get();
+
+        return view('carousels.carouselsSetting', compact(['carousels', 'waiting', 'acepted', 'rejected']));
     }
 
     // simpan input data carousels

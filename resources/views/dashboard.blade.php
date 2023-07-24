@@ -1,6 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
+    @include('sweetalert::alert')
     <div class="pagetitle">
         <h1>Dashboard</h1>
         <nav>
@@ -144,27 +145,27 @@
                                                     radar: {
                                                         // shape: 'circle',
                                                         indicator: [{
-                                                                name: "Sales",
-                                                                max: 6500,
+                                                                name: "Products Count",
+                                                                data: {{ $productCount }},
                                                             },
                                                             {
-                                                                name: "Administration",
-                                                                max: 16000,
+                                                                name: "Active",
+                                                                data: {{ $productsActive }},
                                                             },
                                                             {
-                                                                name: "Information Technology",
-                                                                max: 30000,
+                                                                name: "Pending",
+                                                                data: {{ $productspending }},
                                                             },
                                                             {
-                                                                name: "Customer Support",
-                                                                max: 38000,
+                                                                name: "Suspend",
+                                                                data: {{ $productsreject }},
                                                             },
                                                             {
-                                                                name: "Development",
+                                                                name: "Top Sales",
                                                                 max: 52000,
                                                             },
                                                             {
-                                                                name: "Marketing",
+                                                                name: "Under Sales",
                                                                 max: 25000,
                                                             },
                                                         ],

@@ -30,7 +30,6 @@ Route::middleware(['auth'])->group(function () {
 
     //categories
     Route::get('/categories-setting', [CategoriesController::class, 'setting'])->middleware(['admin'])->name('categories-setting'); //view categories setting //view categories setting
-    Route::get('/categories-create', [CategoriesController::class, 'create'])->middleware(['admin'])->name('categories-create'); //view catgeories create
     Route::post('/categories-create', [CategoriesController::class, 'store'])->middleware(['admin'])->name('categories-create'); //proses simpan create categories
     Route::get('/categories-edit/{id}', [CategoriesController::class, 'edit'])->middleware(['admin']); //view form edit categories
     Route::put('/categories-update', [CategoriesController::class, 'update'])->middleware(['admin'])->name('categories-update'); //proses update categories
@@ -64,9 +63,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/products-delete/{id}', [ProductsController::class, 'destroy'])->middleware(['admin']); //proses delete
 
     //setup-products
-    Route::get('/products-acepted', [ProductsController::class, 'acepted'])->middleware(['admin']); //proses delete
-    Route::get('/products-waiting', [ProductsController::class, 'waiting'])->middleware(['admin']); //proses delete
-    Route::get('/products-rejected', [ProductsController::class, 'rejected'])->middleware(['admin']); //proses delete
+    Route::get('/products-acepted', [ProductsController::class, 'acepted'])->middleware(['admin']); //menampilkan yang acepted
+    Route::get('/products-waiting', [ProductsController::class, 'waiting'])->middleware(['admin']); //menampilkan yang waiting
+    Route::get('/products-rejected', [ProductsController::class, 'rejected'])->middleware(['admin']); //menampilkan yang rejected
     Route::put('/products-acepted', [ProductsController::class, 'productsAcepted'])->name('products-acepted')->middleware(['admin']); //proses simpan banner
     Route::put('/products-decline', [ProductsController::class, 'productsDecline'])->name('products-decline')->middleware(['admin']); //proses simpan banner
 
