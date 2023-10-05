@@ -76,8 +76,20 @@
                         </div>
                         {{-- name products end --}}
 
+                        {{-- qty --}}
+                        <div class="col col-2">
+                            <label>Stock: @error('qty')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </label>
+                            <input type="text" name="qty" placeholder="Input qty"
+                                class="form-control {{ isset($errors->messages()['qty']) ? 'is-invalid' : '' }}"
+                                value="{{ old('qty') }}">
+                        </div>
+                        {{-- qty --}}
+
                         {{-- price --}}
-                        <div class="col col-4">
+                        <div class="col col-2">
                             <label>Price: @error('price')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror

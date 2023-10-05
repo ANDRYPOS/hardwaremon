@@ -207,9 +207,23 @@
                                                         </div>
 
                                                         <div class="row my-1">
+                                                            <div class="col-lg-3 col-md-4 label">Stock</div>
+                                                            <div class="col-lg-9 col-md-8 text-primary">
+                                                                {{ number_format($dataProducts->qty) }}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row my-1">
                                                             <div class="col-lg-3 col-md-4 label">Price</div>
                                                             <div class="col-lg-9 col-md-8 text-primary">Rp.
                                                                 {{ number_format($dataProducts->price) }},-
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row my-1">
+                                                            <div class="col-lg-3 col-md-4 label">Value</div>
+                                                            <div class="col-lg-9 col-md-8 text-primary">Rp.
+                                                                {{ number_format($dataProducts->value) }},-
                                                             </div>
                                                         </div>
 

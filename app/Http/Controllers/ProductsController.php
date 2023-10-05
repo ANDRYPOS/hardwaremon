@@ -24,6 +24,7 @@ class ProductsController extends Controller
 
         // get data products
         $products = Products::all();
+        // dd($products);
 
         //count
         $waiting = Products::where('status_id', 1)->get();
@@ -165,10 +166,14 @@ class ProductsController extends Controller
                 'name' => 'required|min:2',
                 'description' => 'required|min:2',
                 'price' => 'required|numeric',
+                'qty' => 'required|numeric',
                 'image' => 'required|image|mimes:jpeg,png,jpg|max:2024',
             ],
             $message
         );
+
+        // test dumper
+        /* dd($request->qty); */
 
         // convert nama file
         $imageName = 'products_' . time() . '.' . $request->image->getClientOriginalExtension();
@@ -182,6 +187,8 @@ class ProductsController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
+            'qty' => $request->qty,
+            'value' => ($request->qty * $request->price),
             'image' => $imageName,
             'created_by' => Auth::user()->id,
             'verified_by' => Auth::user()->id,
